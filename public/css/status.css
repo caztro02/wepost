@@ -1,0 +1,20 @@
+body {
+    background-color: white;
+}
+
+.status-con {
+    background-color:rgb(60, 192, 240);
+    padding: 10px;
+    height:100px;
+    width:700px;
+    border-radius: 2px;
+    margin-left:300px;
+    margin-top:20px;
+    
+}
+
+.status-con input {
+    height: 20px;
+    width: 30px;
+    margin-top:20px;
+}

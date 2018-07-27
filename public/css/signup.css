@@ -1,0 +1,31 @@
+body {
+    background-color:rgb(55, 55, 105);
+}
+
+.signup-container{
+    background-color: white;
+    padding: 10px;
+    height: 250px;
+    width: 400px;
+    margin-left:450px;
+    margin-top:200px;
+    border-radius:3px;
+
+}
+
+.signup-container span{
+    margin-left:30px;
+    
+
+}
+
+.signup-container input {
+    margin: 10px;
+    margin-left: 20px;
+    }
+
+.signup-container input[type='submit'] {
+    margin-top: 35px;
+    margin-left:300px;
+}
+

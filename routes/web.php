@@ -11,6 +11,26 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get(
+    '/', function () {
+         return view('welcome');
+    }   
+);
+
+Route::get(
+    '/login', function () {
+         return view('pages.login');
+    }   
+); 
+
+Route::get(
+    '/signup', function () {
+         return view('pages.signup');
+    }   
+); 
+
+Route::get(
+    '/status', function () {
+         return view('pages.status');
+    }   
+); 
