@@ -11,6 +11,16 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+
+Route::get(
+    '/', 'MainController@index'
+);
+
+Route::post(
+    '/checklogin', 'MainController@checklogin'
+);
+
+Route::get(
+    '/success', 'MainController@success'
+);
