@@ -41,6 +41,7 @@ class MainController extends Controller
 
     function failed()
     {
-        return back()->with('error', 'Wrong Login Details');
+        return view('pages.failed');
+        //return back()->with('error', 'Wrong Login Details');
     }
 }

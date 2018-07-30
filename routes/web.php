@@ -14,7 +14,11 @@
 
 
 Route::get(
-    '/', 'MainController@index'
+    '/', 'PageController@index'
+);
+
+Route::get(
+    '/signup', 'PageController@signup'
 );
 
 Route::post(
@@ -24,3 +28,20 @@ Route::post(
 Route::get(
     '/success', 'MainController@success'
 );
+
+Route::post(
+    '/login', 'LoginController@login'
+);
+
+Route::post(
+    '/signup', 'SignupController@signup'
+);
+
+
+
+
+/*Route::post(
+    '/test', function () {
+        echo 'Working';
+    }
+);*/

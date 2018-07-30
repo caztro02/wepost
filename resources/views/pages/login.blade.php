@@ -12,7 +12,7 @@
                 @endforeach
             </ul>
         @endif
-    <form method="post" action={{ url('/success') }}>
+    <form method="post" action={{ url('/login') }}>
             {{csrf_field()}}
 
             <input type="email" name="email" /><br>
@@ -20,5 +20,7 @@
 
             <input type="submit" name="login" value="login" />
         </form>
+
+        <a href="/signup">Sign Up</a>
     </body>
 </html>
