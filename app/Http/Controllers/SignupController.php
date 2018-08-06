@@ -10,22 +10,8 @@ use App\User;
 
 class SignupController extends Controller
 {
-    public function signup(Request $request) 
+    public function signup( )
     {
-        $users = new User;
-        
-        $name = $request -> input('name');
-        $email = $request -> input('email');
-        $password = $request -> input('password');
-        
-
-        $data = array('name'=>$name, 'email'=>$email, 'password'=>$password);
-
-        $users->insert($data); //if storing array
-        //$users->save(); --if not array
-        
-        //DB::table('users')->insert($data);
-
-        echo "Saved";
+            return view('pages.signup');
     }
 }

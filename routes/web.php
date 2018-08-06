@@ -14,31 +14,39 @@
 
 
 Route::get(
-    '/', 'PageController@index'
+    '/', 'LoginController@login'
 );
 
 Route::get(
-    '/signup', 'PageController@signup'
-);
-
-Route::post(
-    '/checklogin', 'MainController@checklogin'
-);
-
-Route::get(
-    '/success', 'MainController@success'
-);
-
-Route::post(
-    '/login', 'LoginController@login'
-);
-
-Route::post(
     '/signup', 'SignupController@signup'
 );
 
 
+Route::post(
+    '/login', 'UserController@login'
+);
 
+Route::post(
+    '/signup', 'UserController@signup'
+);
+
+Route::get(
+    '/profile', 'UserController@profile'
+);
+
+
+
+Route::get(
+    '/log', function() {
+        $data = session('email');
+        return $data;
+    }
+);
+
+Route::resource('groups', 'GroupController');
+Route::resource('admin', 'AdminController');
+
+Route::resource('posts', 'PostController');
 
 /*Route::post(
     '/test', function () {
