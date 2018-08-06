@@ -10,15 +10,19 @@
 
             <h3><center>Signup</center></h3><br>
             
-            <span>Username:</span>
-            <input type="text" name="username" placeholder="Username"><br>
-
-          <span>Password:</span>
-            <input type="password" name="password" placeholder="Password">
+        <p>
+         <label for="username">Username:</label>
+            <input type="username" name="username" id="username" v-model="username">
+            </p>
+           
+    <p>
+         <label for="password">Password:</label>
+    <input type="password" name="password" id="password" v-model="password"></label>
+         </p>
 
           <form v-on:submit="sub" action="#" method="post">
        <input type="submit" value="Signup">
        </form>
         </div>
-    </body>
+</body>
 </html>

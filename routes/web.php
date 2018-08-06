@@ -11,11 +11,13 @@
 |
 */
 
+
 Route::get(
     '/', function () {
          return view('welcome');
     }   
-);
+); 
+
 
 Route::get(
     '/login', function () {
@@ -34,3 +36,27 @@ Route::get(
          return view('pages.status');
     }   
 ); 
+
+Route::get(
+    '/default', function () {
+         return view('layout.default');
+    }   
+);
+
+Route::get(
+    '/extend', function () {
+         return view('extend');
+    }   
+);
+
+Route::get(
+    '/header', function () {
+         return view('includes.header');
+    }   
+); 
+
+Route::get(
+    '/component', function () {
+         return view('component', ['name' => 'Vanesa']);
+    }   
+);

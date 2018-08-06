@@ -13,19 +13,19 @@ body {
 
 }
 
-.signup-container span{
+.signup-container label{
     margin-left:30px;
     
 
 }
 
 .signup-container input {
-    margin: 10px;
-    margin-left: 20px;
+    margin: 5px;
+    margin-left: 50px;
     }
 
 .signup-container input[type='submit'] {
-    margin-top: 35px;
+    margin-top: 20px;
     margin-left:300px;
 }
 

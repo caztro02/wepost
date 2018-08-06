@@ -1,27 +1,29 @@
-<!doctype html>
 <html>
-    <head>
+      <head>
     <title>Login @yield('title')</title>
     <link rel="stylesheet" href="<?php echo asset('css/login.css')?>" type="text/css">
+    
 
     </head>
     <body>
     <div class="login-container">
      <h3><center>Login</center></h3><br>
 
-        <span>Username:</span>
-       <input type="text" name="username" placeholder="Username"><br>
+       
+  <p>
+    <label for="username">Username:<label>
+    <input type="username" name="username" id="username" v-model="username">
+  </p>
 
-
-        <span>Password:</span>
-       <input type="password" name="password" placeholder="Password">
+    
+  <p>
+    <label for="password">Password:<label>
+    <input type="password" name="password" id="password" v-model="password">
+  </p>
 
     <form v-on:submit="sub" action="#" method="post">
        <input type="submit" value="Signup">
        </form>
     </div>
-
-  
   </body>
-   
-</html>
+    </html>
