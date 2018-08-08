@@ -3,6 +3,7 @@
 @section('content')
 <center>
 <h2>Registered Users</h2>
+<!--<img src="{{ asset('storage/test.jpg') }}"/>-->
 <div>
 <a href="{{ route('admin.create') }}"><button>Add User</button></a>
 </div>
@@ -15,7 +16,7 @@
     </tr>
     @foreach($data as $value)
     <tr>
-            <td>{{ $value -> name }}</td>
+            <td><a href="{{ route('admin.show', $value->id) }}">{{ $value -> name }}</a></td>
             <td>{{ $value -> email }}</td>
         
            
@@ -23,7 +24,7 @@
     
             <a href ="{{ route('admin.edit', $value->id) }}"/><button>Edit</button></a>&nbsp;
              
-            <form action="{{ route('admin.destroy', $value->id) }}" method="POST">
+            <form action="{{ route('admin.destroy', $value->id) }}" method="POST" onsubmit="ConfirmDelete()">
                 {{ method_field('DELETE') }}
                 {{csrf_field()}}
                 <button type="submit"/>DELETE</button>
@@ -34,4 +35,11 @@
     @endforeach
 </table>
 </center>
+<script>
+        function ConfirmDelete(){
+        
+        if(!confirm("Are You Sure to delete this"))
+        event.preventDefault();
+        }
+</script>
 @endsection

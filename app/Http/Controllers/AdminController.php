@@ -16,8 +16,9 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $user = User::all();
         //return view('admin.index', compact('admin'));
+
+        $user = User::all();
         $users = new User;
 
         $data['data'] = $users -> orderBy('name', 'ASC')->get();
@@ -50,19 +51,21 @@ class AdminController extends Controller
     {
         $users = new User;
         
-        $name = $request -> input('name');
-        $email = $request -> input('email');    
-        $password = $request -> input('password');
-        
-
-        $data = array('name'=>$name, 'email'=>$email, 'password'=>$password);
-
-        $users->insert($data);
-
-
+        //$name = $request -> input('name');
+        //$email = $request -> input('email');    
+        //$password = $request -> input('password');
+        //$data = array('name'=>$name, 'email'=>$email, 'password'=>$password);
+        //$users->insert($data);
         //return view('admin.index');
+        //dd($request);
+
+        $users-> email = $request-> email;
+        $users-> name = $request-> name;
+        $users-> password = $request-> password;
+
+        $users->save();
         return redirect()->route('admin.index');
-       // dd($request);
+       
     }
 
     /**
@@ -73,7 +76,10 @@ class AdminController extends Controller
      */
     public function show($id)
     {
+        $users = new User;
 
+        $data['data'] = $users->where(['id'=>$id])->first();
+        return view('admin.user_profile', $data);
     }
 
     /**
@@ -87,13 +93,15 @@ class AdminController extends Controller
         //dd("yow");
         //$users= User::all();
         $users = new User;
+
         $data['data'] = $users->where(['id'=>$id])->first();
 
         if (count('data[0]') >0 ) {
-            //return $data;
-            return view('admin.edit', $data);
 
+            return view('admin.edit', $data);
+            
         } else {
+
             return view('admin.index');
         }
     }

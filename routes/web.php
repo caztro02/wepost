@@ -34,6 +34,17 @@ Route::get(
     '/profile', 'UserController@profile'
 );
 
+Route::get(
+    '/camera', function() {
+        return view('camera');
+    }
+);
+
+Route::get(
+    '/chroma', function() {
+        return view('chroma');
+    }
+);
 
 
 Route::get(
