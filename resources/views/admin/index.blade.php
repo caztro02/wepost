@@ -8,6 +8,7 @@
 </div>
 <table>
     <tr>
+        <th>Profile</th>
         <th>Name</th>
         <th>Email</th>
         <th>Action</th>
@@ -15,6 +16,7 @@
     </tr>
     @foreach($data as $value)
     <tr>
+            <td><img style="width:10px;height:10px;" src="{{ asset('storage/index.png') }}" /></td>
             <td>{{ $value -> name }}</td>
             <td>{{ $value -> email }}</td>
         
