@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\User;
 use DB;
 
@@ -49,6 +50,22 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
+
+        if ($request->hasFile('profile')) {
+            //get file name with the extension
+            $fileNameWithExt = $request->file('profile')->getClientOriginalName();
+            //get file name only
+            $filename = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+            //get ext only
+            $extension = $request->file('profile')->getClientOriginalExtension();
+            //File name to store
+            $fileNameToStore = $filename."_".time().".".$extension;
+            //upload
+            $path = $request->file('profile')->storeAs('public/profile', $fileNameToStore);
+        } else {
+            $fileNameToStore = 'index.png';
+        }
+
         $users = new User;
         
         //$name = $request -> input('name');
@@ -59,10 +76,10 @@ class AdminController extends Controller
         //return view('admin.index');
         //dd($request);
 
-        $users-> email = $request-> email;
-        $users-> name = $request-> name;
-        $users-> password = $request-> password;
-
+        $users->email = $request-> email;
+        $users->name = $request-> name;
+        $users->password = $request-> password;
+        $users->profile = $fileNameToStore; 
         $users->save();
         return redirect()->route('admin.index');
        
@@ -115,18 +132,36 @@ class AdminController extends Controller
      */
     public function update(Request $request, $id)
     {
+        if ($request->hasFile('profile')) {
+            //get file name with the extension
+            $fileNameWithExt = $request->file('profile')->getClientOriginalName();
+            //get file name only
+            $filename = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+            //get ext only
+            $extension = $request->file('profile')->getClientOriginalExtension();
+            //File name to store
+            $fileNameToStore = $filename."_".time().".".$extension;
+            //upload
+            $path = $request->file('profile')->storeAs('public/profile', $fileNameToStore);
+        }
+
         $user = new User;
         
         $name = $request -> input('name');
         $password = $request -> input('password');
         $emails = $request -> input('email');
+        if ($request->hasFile('profile')) {
+            $profile = $fileNameToStore;
+        }
         $data = array(
             'name' =>$name, 
             'email' =>$emails, 
-            'password' =>$password
+            'password' =>$password,
+            'profile' =>$profile
         );
+
         $user->where(['id'=>$id])->update($data);
-        
+        //dd($data);  
         return redirect()->route('admin.index');
         
    

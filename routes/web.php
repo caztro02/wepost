@@ -13,26 +13,20 @@
 
 
 
+//Route::get(
+ //   '/', 'LoginController@login'
+//);
+
 Route::get(
-    '/', 'LoginController@login'
+    '/', function() {
+        return view('welcome');
+    }
 );
 
 Route::get(
     '/signup', 'SignupController@signup'
 );
 
-
-Route::post(
-    '/login', 'UserController@login'
-);
-
-Route::post(
-    '/signup', 'UserController@signup'
-);
-
-Route::get(
-    '/profile', 'UserController@profile'
-);
 
 Route::get(
     '/camera', function() {
@@ -54,9 +48,15 @@ Route::get(
     }
 );
 
+Route::get(
+    '/user', function() {
+        return view('user.index');
+    }
+);
+
 Route::resource('groups', 'GroupController');
 Route::resource('admin', 'AdminController');
-
+Route::resource('users', 'UserController');
 Route::resource('posts', 'PostController');
 
 /*Route::post(

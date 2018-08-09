@@ -8,7 +8,7 @@
     {{ method_field('PUT') }}
     {{csrf_field()}}
 
-    <input type="hidden" name="email" value="test@test.com"/>
+    <input type="hidden" name="id" value="{{ $data->id }}"/>
 <input type="text" class="post_content" name="content" value ="{{ $data->content }}"placeholder="What's on your mind?"/>
     <button type="submit" name="post">Edit</button>
     

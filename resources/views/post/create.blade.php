@@ -1,7 +1,7 @@
 
 
 <center>
-<h2>Add Users</h2>
+
 
 <form method="post" action={{ route('posts.store') }}>
     {{csrf_field()}}

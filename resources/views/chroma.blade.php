@@ -10,7 +10,7 @@
 
     <style>
         body{
-            background-image: url('{{ asset('storage/123.jpg') }}');
+            background-image: url('{{ asset('storage/bg.jpg') }}');
             background-size:cover;
             background-repeat:no-repeat;
         }
@@ -28,7 +28,7 @@
     function setup(){
         canvas=createCanvas(1366,768, WEBGL);
         canvas.id('p5canvas');
-        background(51);
+        //  background('{{ asset('storage/bg.jpg') }}');
         video=createCapture(VIDEO);
         video.size(1366,768);
         video.id('p5video');

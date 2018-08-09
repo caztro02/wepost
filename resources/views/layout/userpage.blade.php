@@ -61,10 +61,22 @@
             
             input[type="text"] {
                 margin: 0;
+                width:200px;
             }
 
             input[type="password"] {
                 margin: 0;
+                width:200px;
+            }
+
+            input[type="email"] {
+                margin: 0;
+                width:200px;
+            }
+
+            input[type="file"] {
+                margin: 0;
+                width:200px;
             }
 
             label h3{
