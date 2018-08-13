@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddProfileInUsersTable extends Migration
+class AddSoftDeleteInUsersModel extends Migration
 {
     /**
      * Run the migrations.
@@ -15,7 +15,7 @@ class AddProfileInUsersTable extends Migration
     {
         Schema::table(
             'users', function (Blueprint $table) {
-                $table->string('profile');
+                $table->softDeletes();
             }
         );
     }
@@ -29,7 +29,7 @@ class AddProfileInUsersTable extends Migration
     {
         Schema::table(
             'users', function (Blueprint $table) {
-                $table->dropColumn('profile');
+                $table->dropColumn();
             }
         );
     }

@@ -27,6 +27,16 @@ Route::get(
     '/signup', 'SignupController@signup'
 );
 
+Route::get(
+    '/login', 'LoginController@index'
+);
+
+//Route::post(
+//    '/login', 'LoginController@login'
+//);
+
+Route::post('login', array('uses' => 'LoginController@login'));
+
 
 Route::get(
     '/camera', function() {
@@ -57,6 +67,7 @@ Route::get(
 Route::resource('groups', 'GroupController');
 Route::resource('admin', 'AdminController');
 Route::resource('users', 'UserController');
+
 Route::resource('posts', 'PostController');
 
 /*Route::post(
@@ -64,3 +75,6 @@ Route::resource('posts', 'PostController');
         echo 'Working';
     }
 );*/
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

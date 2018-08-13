@@ -77,7 +77,7 @@ class UserController extends Controller
         $users->password = $request-> password;
         $users->profile = $fileNameToStore; 
         $users->save();
-        return redirect()->route('admin.index');
+        return redirect()->route('users.index');
        
     
     }
@@ -148,16 +148,25 @@ class UserController extends Controller
         if ($request->hasFile('profile')) {
             $profile = $fileNameToStore;
         }
-        $data = array(
-            'name' =>$name, 
-            'email' =>$emails, 
-            'password' =>$password,
-            'profile' =>$profile
-        );
+        if ($request->hasFile('profile')) {
+            $data = array(
+                'name' =>$name, 
+                'email' =>$emails, 
+                'password' =>$password,
+                'profile' =>$profile
+            );
+        } else {
+            $data = array(
+                'name' =>$name, 
+                'email' =>$emails, 
+                'password' =>$password,
+            );
+        }
+        
 
         $user->where(['id'=>$id])->update($data);
         //dd($data);  
-        return redirect()->route('admin.index');
+        return redirect()->route('users.index');
     }
 
     /**
@@ -173,6 +182,6 @@ class UserController extends Controller
         $user ->where(['id'=>$id])->delete();
 
         
-        return redirect()->route('admin.index');
+        return redirect()->route('users.index');
     }
 }
