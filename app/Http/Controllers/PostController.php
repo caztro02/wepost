@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Post;
 use DB;
 
@@ -49,20 +50,17 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $post = new Post;
-        
-        $content = $request ->input('content');
-        $email = $request ->input('email');         
-        
-
+        //$content = $request ->input('content');
+        //$email = $request ->input('email');         
         //$data = array('content'=>$content, 'email'=>$email);
-        $post-> content = $request-> content;
-        $post-> email = $request-> email;
-        
-        $post->save();
-
-        
         //return view('admin.index');
+
+        $post-> content = $request-> content;
+        $post-> user_id = $request-> id;
+
+        $post->save();
         return redirect()->route('posts.index');
+
     }
 
     /**
@@ -73,7 +71,7 @@ class PostController extends Controller
      */
     public function show($id)
     {
-
+        
     }
 
     /**
@@ -85,14 +83,16 @@ class PostController extends Controller
     public function edit($id)
     {
         $post = new Post;
-        $data['data'] = $post->where(['id'=>$id])->first();
 
+        $data['data'] = $post->where(['id'=>$id])->first();
         if (count('data[0]') >0 ) {
-            //return $data;
+        
             return view('post.edit', $data);
 
         } else {
+
             return view('post.index');
+
         }
     }
 
@@ -127,8 +127,6 @@ class PostController extends Controller
         $post = new Post;
 
         $post ->where(['id'=>$id])->delete();
-
-        
         return redirect()->route('posts.index');
     }
 }

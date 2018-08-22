@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>WePost</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -61,10 +61,22 @@
             
             input[type="text"] {
                 margin: 0;
+                width:200px;
             }
 
             input[type="password"] {
                 margin: 0;
+                width:200px;
+            }
+
+            input[type="email"] {
+                margin: 0;
+                width:200px;
+            }
+
+            input[type="file"] {
+                margin: 0;
+                width:200px;
             }
 
             label h3{
