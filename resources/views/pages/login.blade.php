@@ -18,11 +18,14 @@
     
 
 </head>
+<body img class="ui fluid image">
         
         <center>
             <h1><i>WePost</i></h1>
         </center>
-
+        <br>
+        <br>
+        <div class="ui two column centered grid">
     <div class="container">
     
         <h2>Log In</h2>  
@@ -31,12 +34,12 @@
                 {{csrf_field()}}
             
                     <div class="field">
-                        <label style="color:black">E-mail</label>
+                        <label style="color:black; float:left">E-mail</label>
                             <input name="email" required placeholder="@email.com" type="email">
                     </div>
                     
                     <div class="field">
-                        <label style="color:black">Password:</label>
+                        <label style="color:black; float:left">Password:</label>
                             <input type="password" name="password" required placeholder="Password">
                     </div>
                 
@@ -47,6 +50,7 @@
                         </div>
                      </form>
                     </div> 
+                </div>
                     
                     
                      @if($message = Session::get('error'))
@@ -59,5 +63,6 @@
                                  @endforeach
                                 </ul>
                                 @endif
+</body>
 @endsection
  

@@ -4,8 +4,10 @@
 <link rel="stylesheet" href="{{mix('css/app.css')}}">
 @section('content')
 <center>
+ <body img class="ui fluid image" src="/images/pink.jpg">
+
     <div class="container white">
-      <h2><b>Add Users</b></h2> 
+      <h2><b>Add Users</b></h2>
         <form class="ui massive form" method="post" action={{ route('posts.update', $data->id) }}>
             {{ method_field('PUT') }}
             {{csrf_field()}}
@@ -24,4 +26,5 @@
     </div>
 
 </center>
+</body>
 @endsection

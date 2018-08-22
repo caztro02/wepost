@@ -6,7 +6,7 @@
     {{csrf_field()}}
     <input type="hidden" name="email" value="test@test.com"/>
     
-    <div style="width:50%;" class="container ">
+    <div style="width:50%;" class="container">
             <h4 style="float:left">Status</h4>
             <div style="float:right">
                 <i class="user icon"></i>

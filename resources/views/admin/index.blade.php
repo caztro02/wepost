@@ -2,6 +2,7 @@
 
 @section('content')
  <!--Retrieving and showing of data from database-->  
+
         <table class="ui celled table">
             <thead>
                 <tr><th colspan="3">
@@ -13,30 +14,33 @@
                             <th>Action</th>
                         </tr>
                         <tbody>
-                            <tr>
-                                    @foreach($data as $value)  
-                            </tr>
+                                
+                             @foreach($data as $value)  
+                                
                             <tr>
                                 <td>{{ $value -> name }}</td>
                                 <td>{{ $value -> email }}</td>
+                            
                                 <td> <form action="{{ route('admin.destroy', $value->id) }}" method="POST">
                                     {{ method_field('DELETE') }}
                                     {{csrf_field()}}
-                                    <div class="ui large buttons">
+                                      
+                                    <div colspan="3"  class="ui large buttons">
                                         <button class="ui google plus button" type="submit"/>DELETE</button> 
                                         <div class="ui or"></div>
                                         <a class="ui facebook button" href ="{{ route('admin.edit', $value->id) }}"/>EDIT</a>&nbsp;
                                         <div class="ui or"></div>
                                         <a class="ui green button" href="{{ route('admin.create') }}">Add User</a></td>
-                                 
+                                    
                                     </form>
+                                
                                 </div>                                    
                             </tr>
-                          
-                        </tbody>
-        <table>
+                            @endforeach 
+        </tbody>
+    <table>
         
              
              
-    @endforeach 
+   
 @endsection

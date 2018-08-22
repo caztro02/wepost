@@ -1,55 +1,60 @@
 @extends('layout.userpage')
 
 @section('content')
-<center>
-    
-<h2>Add Users</h2>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Laravel</title>
+
+    <!-- Fonts -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.css">  
+    <link rel="stylesheet" href="<?php echo asset('css/admin.css')?>" type="text/css">
+    <link rel="stylesheet" href="{{mix('css/app.css')}}">
+
+</head>
 
 <form method="post" action={{ route('admin.update', $data->email) }}>
     {{ method_field('PUT') }}
     {{csrf_field()}}
 
-    <input type="text" name="name" placeholder="Name" value="{{ $data->name }}" /><br>
-    <input type="email" name="email" placeholder="Email" value={{ "$data->email" }} /><br>
-    
-    <input type="password" name="password" placeholder="Password" value={{ "$data->password" }} /><br>
-   
-    <button type="submit" name="edit">Edit</button>
-    
-</form>
-<div class="ui form">
+<div class="ui form white">
 <div class="ui middle aligned center aligned grid">
         <div class="column">
           <h2 class="ui teal image header">
-            <img src="assets/images/logo.png" class="image">
+              <img class="ui circular image" src="/images/twitter1.png">
             <div class="content">
-              Log-in to your account
+              <h3>Edit User</h3>
             </div>
           </h2>
-          <form class="ui large form error">
+         
             <div class="ui stacked segment">
-              <div class="field error">
-                <div class="ui left icon input">
-                  <i class="user icon"></i>
-                  <input name="email" placeholder="E-mail address" type="text">
+              <div class="field white">
+                <div class="ui massive left icon input">
+                  <i class=" user icon"></i>
+                  <input type="text" name="name" placeholder="Name" value="{{ $data->name }}"/>
                 </div>
               </div>
-              <div class="field error">
-                <div class="ui left icon input">
-                  <i class="lock icon"></i>
-                  <input name="password" placeholder="Password" type="password">
+              <div class="field white">
+                <div class="ui massive left icon input">
+                  <i class="envelope outline icon"></i>
+                  <input type="email" name="email" placeholder="Email" value={{ "$data->email" }} />
                 </div>
               </div>
-              <div class="ui fluid large teal submit button">Login</div>
-            </div>
-      
-            <div class="ui error message"><ul class="list"><li>Please enter a valid e-mail</li><li>Please enter your password</li><li>Your password must be at least 6 characters</li></ul></div>
+                <div class="field white">
+                    <div class="ui massive left icon input">
+                      <i class="lock icon"></i>
+                      <input type="password" name="password" placeholder="Password" value={{ "$data->password" }} />
+                    </div>
+                  </div>
+                 <div class="ui huge fluid buttons">
+                    <button class="ui linkedin button" type="submit" name="edit">Edit</button>
+                    <button class="ui teal button" href ="{{ route('admin.index') }}"/>Cancel</button></a>
+                  </div>
       
           </form>
-        </div>     
-
-
-<a href ="{{ route('admin.index') }}"/><button>Cancel</button></a>
-</center>
+</div>     
 
 @endsection

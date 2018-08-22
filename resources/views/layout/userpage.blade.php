@@ -14,7 +14,7 @@
         <title>Laravel</title>
 
           </head>
-    <body>
+    <body style="background-color: rgba(52, 73, 94,1.0)">
             <div class="ui inverted menu">
                     <a class="item">
                             WePost

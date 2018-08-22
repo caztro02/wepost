@@ -1,8 +1,17 @@
- <head>
-        <title>WePost</title>
-    </head>
+<html lang="{{ app()->getLocale() }}">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <body>
+        <title>Laravel</title>
+
+        <!-- Fonts -->
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.css">  
+        <link rel="stylesheet" href="<?php echo asset('css/posts.css')?>" type="text/css">
+        <link rel="stylesheet" href="{{mix('css/app.css')}}">
+
+  <body img class="ui fluid image" src="/images/img3.jpg">
             <div class="ui massive inverted menu">
                     <a class="item">
                             WePost
@@ -15,6 +24,7 @@
             
             
     @yield('content')
+    
     <div style="position:fixed; bottom:0;width: 100%;"class="ui inverted  vertical footer segment">
             <center><p>Created  By: Isla and Gaowther</p></center>
            

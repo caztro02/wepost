@@ -18,7 +18,7 @@
     
     <body>
  
-        <div class="ui inverted menu">
+        <div  class="ui massive inverted menu">
                 <a class="item">
                         WePost
                       </a>
@@ -26,14 +26,14 @@
                   About 
                 </a>
                 
-                <div class="right menu">
+              <!--  <div class="right menu">
                     <div class="item">
                                 <div class="ui facebook button">Login</div>
                             <div class="item">
                                  <div class="ui youtube button">Sign Up</div>
                             </div>
                     </div> 
-                </div>
+                </div>-->
         </div>
         <diV>
     <center>
@@ -43,7 +43,5 @@
     <div style="position:fixed; bottom:0;width: 100%;"class="ui inverted  vertical footer segment">
            <center><p>Created  By: Isla and Gaowther</p></center>
           
-    </div>
- 
 </body>
 </html>

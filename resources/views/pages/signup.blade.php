@@ -12,6 +12,11 @@
     @extends('layout.app')
 
 @section('content')
+<body img class="ui fluid image" src="/images/img3.jpg">
+    <center>
+        <h1><i>WePost</i></h1>
+    </center>
+    <br>
 
    <div class="container">
     <h2>Sign Up</h2>
@@ -19,18 +24,18 @@
         <form class="ui massive form"  method="post" action={{ url('/signup') }}>
             {{csrf_field()}}
            <div class="field">
-                 <label>Name:</label>
+                 <label style="float:left">Name:</label>
                     <input type="text" name="name" required placeholder="Name" />
             </div>
 
             <div class="field">
-                <label>Email:</label>
+                <label style="float:left">Email:</label>
                     <input type="email" name="email" required placeholder="@email.com" />
             
             </div>
             
             <div class="field">
-                <label>Password:</label>
+                <label style="float:left">Password:</label>
                      <input type="password" name="password" required placeholder="Password" />
             </div>
 
@@ -39,5 +44,5 @@
            </div>
         </div>
         </form>
-   
+    </body>
 @endsection

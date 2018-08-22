@@ -61,6 +61,7 @@ Route::get(
 );
 
 
+
 /*Route::get(
     '/', 'LoginController@login'
 );*/
