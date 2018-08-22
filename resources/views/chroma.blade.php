@@ -14,39 +14,52 @@
             background-size:cover;
             background-repeat:no-repeat;
         }
+        .canvas{
+            height:100%;
+            width:100%
+        }
     </style>
 </head>
 <body>
-
+    <!--<canvas class="canvas" id="p5canvas">Not Supported</canvas>-->
 </body>
 </html>
 
 <script>
     var video;
+    var canvas;
     var slider;
+    var cv;
+    
+    var cw=1000;
+    var ch=500;
+    
 
     function setup(){
-        canvas=createCanvas(1366,768, WEBGL);
-        canvas.id('p5canvas');
-        //  background('{{ asset('storage/bg.jpg') }}');
+        canvas=createCanvas(1000,500, WEBGL, height, width);
+        background(51);
+        canvas=canvas.id('p5canvas');
+        canvas.size(cw,ch);
+
+     //background('{{ asset('storage/bg.jpg') }}');
         video=createCapture(VIDEO);
-        video.size(1366,768);
+        video.size(1000,500);
         video.id('p5video');
         video.hide();
 
-        slider = createSlider(0, 1, 0.5, 0.01);
-        slider.id('blur-slider');
+        //slider = createSlider(0, 1, 0.5, 0.01);
+        //slider.id('blur-slider');
 
         var seriously = new Seriously();
 
         var src = seriously.source('#p5video');
-        var target = seriously.target('#p5canvas');
-
-        var blur = seriously.effect('blur');
+        var target = seriously.target('#p5canvas', WEBGL);
+       
+        /*var blur = seriously.effect('blur');
         blur.amount = '#blur-slider';
         blur.source = src;
         target.source= blur;
-
+        */
         var chroma = seriously.effect('chroma');
         chroma.source = src;
         target.source = chroma;
@@ -59,6 +72,8 @@
 
         seriously.go();
     }
-    
+    function draw(){
+        //image(video, video.offsetWidth, video.offsetHeight);
+    }
     
 </script>

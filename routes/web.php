@@ -65,10 +65,10 @@ Route::get(
 );
 
 Route::resource('groups', 'GroupController');
-Route::resource('admin', 'AdminController');
-Route::resource('users', 'UserController');
-
-Route::resource('posts', 'PostController');
+Route::resource('admin', 'AdminController')->middleware('admin');
+Route::resource('users', 'UserController');//->middleware('auth');
+Route::resource('profile', 'ProfileController');
+Route::resource('posts', 'PostController')->middleware('auth');
 
 /*Route::post(
     '/test', function () {

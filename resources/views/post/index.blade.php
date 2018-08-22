@@ -3,7 +3,7 @@
 
 @section('content')
 
-    <center><h1>Posts Controller</h1></center>
+    <center><h1>Share Your Thoughts!</h1></center>
 
     <center>
     <div class="post_form">

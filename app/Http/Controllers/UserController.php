@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\User;
+use App\Role;
 use DB;
 
 class UserController extends Controller
@@ -76,6 +77,7 @@ class UserController extends Controller
         $users->name = $request-> name;
         $users->password = $request-> password;
         $users->profile = $fileNameToStore; 
+        $users->roles()->attach($role_user);
         $users->save();
         return redirect()->route('users.index');
        

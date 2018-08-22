@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-
+use Auth;
 use App\User;
+use App\Role;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
@@ -26,7 +27,22 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/posts';
+    //protected $redirectTo = '/chroma';
+    protected function authenticated($request, $user)
+    {
+        if (Auth::user()->roles()->first()->id == '1') {
+                return redirect()->route('posts.index');   
+        } else if(Auth::user()->roles()->first()->id == '2')
+                return redirect()->route('admin.index');   
+          
+        /*if ($user->hasRole('admin')) {
+            return redirect()->route('admin.index');
+        } else if ($user->hasRole('user')) {
+            return redirect()->route('posts.index');
+        } else {
+            return redirect('/');
+        }*/
+    }
 
     /**
      * Create a new controller instance.

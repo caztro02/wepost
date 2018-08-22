@@ -21,8 +21,15 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('home');
+        /*
+        if ($request->user()->authorizeRoles(['user'])) {
+            return redirect()->route('posts.index');
+        } else if ($request->user()->authorizeRoles(['admin'])) {
+            return redirect()->route('admin.index');
+        }
+        */
+        return redirect()->route('posts.index');
     }
 }
