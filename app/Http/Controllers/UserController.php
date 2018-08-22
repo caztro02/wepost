@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\User;
 use App\Role;
+use Auth;
 use DB;
 
 class UserController extends Controller
@@ -46,6 +47,9 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+    
+     
     public function store(Request $request)
     {
         if ($request->hasFile('profile')) {
@@ -77,8 +81,10 @@ class UserController extends Controller
         $users->name = $request-> name;
         $users->password = $request-> password;
         $users->profile = $fileNameToStore; 
-        $users->roles()->attach($role_user);
+        
         $users->save();
+        $user_role=Role::where('name', 'user')->first();
+        $users->roles()->attach($user_role);
         return redirect()->route('users.index');
        
     
@@ -95,7 +101,11 @@ class UserController extends Controller
         $users = new User;
 
         $data['data'] = $users->where(['id'=>$id])->first();
-        return view('admin.user_profile', $data);
+        if (Auth::user()->roles()->first()->id == '1') {
+            return view('user.user_profile', $data);   
+        } else if(Auth::user()->roles()->first()->id == '2')
+            return view('admin.user_profile', $data);  
+        //return view('user.user_profile', $data);
     }
 
     /**
@@ -186,4 +196,11 @@ class UserController extends Controller
         
         return redirect()->route('users.index');
     }
+
+    public function __construct()
+{
+    $this->middleware('admin', ['except' => ['edit', 'show']]);
+    // Alternativly
+    $this->middleware('admin', ['only' => ['create', 'store', 'index', 'delete']]);
+}
 }

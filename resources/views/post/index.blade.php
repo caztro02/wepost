@@ -22,7 +22,7 @@
 
             @else
             <img style="width:50px;height:50px;" src="/storage/profile/{{ $value->user->profile }}"/>
-            <h3>Posted by <a href="{{ route('admin.show', $value->id) }}">{{ $value->user->name }}</a></h3>  
+            <h3>Posted by <a href="{{ route('users.show', $value->id) }}">{{ $value->user->name }}</a></h3>  
             @endif
 
             <h3>{{ $value->content }}</h3>
