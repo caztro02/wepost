@@ -6,16 +6,19 @@
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <title>WePostStatus @yield('title')</title>
         <link rel="stylesheet" href="<?php echo asset('css/status.css')?>" type="text/css">
+        <link rel="stylesheet" href="{{mix('css/app.css')}}">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     </head>
     
     <body>
-        <div class="status-con">
+        <div  class="status-con ">
+                <div class="">
 
-<span>Status</span>
-
+               
+        <span >Status</span>
+    </div>
   <span><i class="fa fa-user" style="font-size:24px; margin-left:800px; margin-top:0px; align:justify; cursor:pointer"></i></span>
   <span><i class="fa fa-power-off" style="font-size:24px;cursor:pointer"></i></span>
             

@@ -11,7 +11,6 @@
 |
 */
 
-
 Route::get(
     '/', function () {
          return view('welcome');
@@ -57,6 +56,48 @@ Route::get(
 
 Route::get(
     '/component', function () {
-         return view('component', ['name' => 'Vanesa']);
+         return view('component');
     }   
 );
+
+
+/*Route::get(
+    '/', 'LoginController@login'
+);*/
+
+Route::get(
+    '/signup', 'SignupController@signup'
+);
+
+
+Route::post(
+    '/login', 'UserController@login'
+);
+
+Route::post(
+    '/signup', 'UserController@signup'
+);
+
+Route::get(
+    '/profile', 'UserController@profile'
+);
+
+
+
+Route::get(
+    '/log', function() {
+        $data = session('email');
+        return $data;
+    }
+);
+
+Route::resource('groups', 'GroupController');
+Route::resource('admin', 'AdminController');
+
+Route::resource('posts', 'PostController');
+
+/*Route::post(
+    '/test', function () {
+        echo 'Working';
+    }
+);*/

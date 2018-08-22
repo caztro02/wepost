@@ -30,16 +30,3 @@ Backtrace:
 /usr/share/koala/bin/sass:22:in `load'
 /usr/share/koala/bin/sass:22:in `<main>'
 */
-
-#header{
-background-color: darkblue;
-padding: 30px 10px;
-
-}
-
-#footer{
-        background-color: darkblue;
-        padding: 30px 10px;
-        margin-top:495;
-
-}

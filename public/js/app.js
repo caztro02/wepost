@@ -993,6 +993,13 @@ var app = new Vue({
   el: '#app'
 });
 
+$('.slider').glide({
+  autoplay: false,
+  arrowsWrapperClass: 'slider-arrows',
+  arrowRightText: '',
+  arrowLeftText: ''
+});
+
 /***/ }),
 /* 11 */
 /***/ (function(module, exports, __webpack_require__) {
