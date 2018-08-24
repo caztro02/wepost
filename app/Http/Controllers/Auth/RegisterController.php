@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-
+use App\Notifications\VerifyEmail;
 use App\User;
 use App\Role;
 use App\Http\Controllers\Controller;
@@ -74,17 +74,23 @@ class RegisterController extends Controller
         $user = new User;
         $fileNameToStore = "index.png";
 
-         $user=User::create( 
+        $user=User::create( 
             [
             'name' => ucwords($data['name']),
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
             'profile' => $fileNameToStore,
+            'token' => str_random(25), 
             ]
         );
         //$user->User::find(1);
         $user_role=Role::where('name', 'user')->first();
         $user->roles()->attach($user_role);
+
+
+        $user->sendVerificationEmail();
+        //$user->notify(new VerifyEmail($user));
+
         return $user;
     }
 }

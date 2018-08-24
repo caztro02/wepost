@@ -1,7 +1,7 @@
 <?php
 
 namespace App;
-
+use App\Notifications\VerifyEmail;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -18,7 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'profile'
+        'name', 'email', 'password', 'profile', 'token'
     ];
 
     /**
@@ -91,5 +91,16 @@ class User extends Authenticatable
         if($this->roles()->where('name', $role));
     }
 
+   
+
+    public function verified()
+    {
+        return $this->token === null;
+    }
+
+    public function sendVerificationEmail()
+    {
+        $this->notify(new VerifyEmail($this));
+    }
 
 }
