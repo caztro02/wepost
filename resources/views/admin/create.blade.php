@@ -18,8 +18,9 @@
 
 <center>
 
-   <form method="post" action={{ route('admin.store') }}>
-        {{csrf_field()}}
+
+    <form method="post" action={{ route('users.store') }} enctype="multipart/form-data">
+      {{csrf_field()}}
         <div class="ui form black">
                 <div class="ui middle aligned center aligned grid">
                         <div class="column">
@@ -49,33 +50,26 @@
                                       <input type="password" name="password" placeholder="Password">
                                     </div>
                                   </div>
+                                  <input type="file" name="profile" id="file">
                                  <div class="ui huge fluid buttons">
                                     <button class="ui linkedin button" type="submit" name="edit">Add</button>
-                                    <button class="ui teal button" href ="{{ route('admin.index') }}"/>Cancel</button></a>
+                                    <button class="ui teal button" href ="{{ route('users.index') }}"/>Cancel</button></a>
                                   </div>
                       
                           </form>
                 </div>     
    
+  
    
    
-   
-   
-    <!-- <div class="container white">
-        <h2>Add Users</h2>
-            <form method="post" action={{ route('admin.store') }}>
-            {{csrf_field()}}
-
-    <input type="text" name="name" placeholder="Name" /><br>
-    <input type="email" name="email" placeholder="Email" /><br>
-    <input type="password" name="password" placeholder="Password" /><br>
-   
-    <button type="submit" name="add">Add</button>
+ <!-- 
+<form method="post" action={{ route('users.store') }} enctype="multipart/form-data">
+    {{csrf_field()}}
     
-</form>
+development
 
-<a href ="{{ route('admin.index') }}"/><button>Cancel</button></a>
-</div>
-</center>-->
 
+<a href ="{{ route('users.index') }}"/><button>Cancel</button></a>
+</center>
+development-->
 @endsection

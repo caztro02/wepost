@@ -11,18 +11,17 @@
 |
 */
 
-Route::get(
-    '/', function () {
-         return view('welcome');
-    }   
-); 
 
 
+//Route::get(
+ //   '/', 'LoginController@login'
+//);
+/*
 Route::get(
     '/login', function () {
          return view('pages.login');
     }   
-); 
+);*/ 
 
 Route::get(
     '/signup', function () {
@@ -37,7 +36,7 @@ Route::get(
 ); 
 
 Route::get(
-    '/default', function () {
+    '/', function () {
          return view('layout.default');
     }   
 );
@@ -57,8 +56,15 @@ Route::get(
 Route::get(
     '/component', function () {
          return view('component');
-    }   
+    } 
 );
+
+/*Route::get(
+    '/', function() {
+        return view('welcome');
+    }
+//development
+);*/
 
 
 
@@ -69,20 +75,29 @@ Route::get(
 Route::get(
     '/signup', 'SignupController@signup'
 );
-
-
-Route::post(
-    '/login', 'UserController@login'
+/*      
+Route::get(
+    '/login', 'LoginController@index'
 );
+*/
+//Route::post(
+//    '/login', 'LoginController@login'
+//);
 
-Route::post(
-    '/signup', 'UserController@signup'
+//Route::post('login', array('uses' => 'LoginController@login'));
+
+
+Route::get(
+    '/camera', function() {
+        return view('camera');
+    }
 );
 
 Route::get(
-    '/profile', 'UserController@profile'
+    '/chroma', function() {
+        return view('chroma');
+    }
 );
-
 
 
 Route::get(
@@ -92,13 +107,26 @@ Route::get(
     }
 );
 
-Route::resource('groups', 'GroupController');
-Route::resource('admin', 'AdminController');
+Route::get(
+    '/user', function() {
+        return view('user.index');
+    }
+);
 
-Route::resource('posts', 'PostController');
+Route::resource('groups', 'GroupController');
+Route::resource('admin', 'AdminController')->middleware('admin');
+Route::resource('users', 'UserController');//->middleware('auth');
+Route::resource('profile', 'ProfileController');
+Route::resource('posts', 'PostController')->middleware('auth');
 
 /*Route::post(
     '/test', function () {
         echo 'Working';
     }
 );*/
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+//development

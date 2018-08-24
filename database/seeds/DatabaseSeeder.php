@@ -11,7 +11,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        Eloquent::unguard();
-         $this->call(UsersTablesSeeder::class);
+        //Eloquent::unguard();
+         //$this->call(UsersTablesSeeder::class);
+
+         // Role comes before User seeder here.
+        $this->call(RoleTableSeeder::class);
+        // User seeder will use the roles above created.
+        $this->call(UsersTablesSeeder::class);
     }
 }

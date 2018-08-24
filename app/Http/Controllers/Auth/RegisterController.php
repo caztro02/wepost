@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Role;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -47,11 +48,17 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        return Validator::make($data, [
+
+        return Validator::make(
+            $data, [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
-        ]);
+            'password' => 'required|string|min:8|regex:/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{6,}+$/|confirmed',
+            
+            ]
+        );
+
+        
     }
 
     /**
@@ -59,13 +66,25 @@ class RegisterController extends Controller
      *
      * @param  array  $data
      * @return \App\User
+     * 
      */
+    
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
+        $user = new User;
+        $fileNameToStore = "index.png";
+
+         $user=User::create( 
+            [
+            'name' => ucwords($data['name']),
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
-        ]);
+            'profile' => $fileNameToStore,
+            ]
+        );
+        //$user->User::find(1);
+        $user_role=Role::where('name', 'user')->first();
+        $user->roles()->attach($user_role);
+        return $user;
     }
 }

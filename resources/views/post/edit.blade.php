@@ -6,6 +6,7 @@
 <center>
  <body img class="ui fluid image" src="/images/pink.jpg">
 
+
     <div class="container white">
       <h2><b>Add Users</b></h2>
         <form class="ui massive form" method="post" action={{ route('posts.update', $data->id) }}>
@@ -24,6 +25,13 @@
                     <a class="ui primary button" href ="{{ route('posts.index') }}"/>Cancel</a>
         </form>
     </div>
+<!--
+    <input type="hidden" name="id" value="{{ $data->id }}"/>
+<input type="text" class="post_content" name="content" value ="{{ $data->content }}"placeholder="What's on your mind?"/>
+    <button type="submit" name="post">Edit</button>
+    
+</form>
+development-->
 
 </center>
 </body>

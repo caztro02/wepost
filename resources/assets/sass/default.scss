@@ -3,14 +3,13 @@
 background-repeat:no-repeat;
   background-size:cover;
    font-family: 'Arial';
-
-  // width:100%;
-  // padding:0;
-  height: 100vh;
+ }
+ .ui.grid{
+   height:100%;
  }
 
 .ui.massive.text{
-  color:black;
+  color:#273c75;
   margin-top: 10%;
   font-size:90px;
 }
@@ -35,11 +34,6 @@ h3{
 }
 .field input{
   width:200px;
-}
-
-.ui.buttons{
-margin-left:10%;
-margin: 0px;
 }
 
 .container{

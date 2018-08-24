@@ -4,18 +4,26 @@
 
 @section('content')
 
+
 <head>
     <title>Login</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!--Style for Login-->
+     
     
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.css">  
-    <link rel="stylesheet" href="<?php echo asset('css/login.css')?>" type="text/css">
-    <link rel="stylesheet" href="{{mix('css/app.css')}}">  
-    
+<!--
+        <h2>Log In</h2>
+        <p>
+                {{ $errors->first('email') }}
+        </p> 
+        <p>
+                {{ $errors->first('password') }}
+        </p>
+    <form method="post" action={{ url('/login') }}>
+            {{csrf_field()}}
+            <label for="email"><h3>E-mail:</h3></label>
+            <input type="text" name="email" /><br>
+            <label for="password"><h3>Password:</h3></label>
+            <input type="password" name="password" /><br>
+development-->
 
 </head>
 <body img class="ui fluid image">

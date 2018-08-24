@@ -19,12 +19,12 @@
 <link rel="stylesheet" href="{{mix('css/app.css')}}">
 
 </head>
-<body>
+<!--<body>
     <div class="ui container">
         <div class="ui modal">
 
             </div>
-        </div>
+        </div> -->
 
 
 
