@@ -54,7 +54,7 @@ class User extends Authenticatable
     * @param string|array $roles
 
     */
-
+/*
     public function authorizeRoles($roles) {
 
         if (is_array($roles)) {
@@ -65,13 +65,13 @@ class User extends Authenticatable
         return $this->hasRole($roles) || 
         abort(401, 'This action is unauthorized.');
     }
-
+*/
     /** 
     * Check multiple roles
     * @param array $roles
     */
 
-    public function hasAnyRole($roles)
+   /* public function hasAnyRole($roles)
     {
         return null !== $this->roles()->whereIn('name', $roles)->first();
     }
@@ -80,15 +80,15 @@ class User extends Authenticatable
     * Check one role
     * @param string $role
     */
-
+/*
     public function hasRole($role)
     {
         return null !== $this->roles()->where('name', $role)->first();
-    }
+    }*/
 
     public function IsAdmin()
     {
-
+        if($this->roles()->where('name', $role));
     }
 
 

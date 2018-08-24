@@ -16,6 +16,6 @@
     
 </form>
 
-<a href ="{{ route('users.index') }}"/><button>Cancel</button></a>
+<a href ="{{ route('users.index') }}"><button>Cancel</button></a>
 </center>
 @endsection

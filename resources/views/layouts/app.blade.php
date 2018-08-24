@@ -28,9 +28,21 @@
                     </button>
 
                     <!-- Branding Image -->
+                    @guest
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                        {{ config('app.name') }}
                     </a>
+                    @else
+                        @if(Auth::user()->roles()->first()->name == 'user')
+                            <a class="navbar-brand" href="{{ route('posts.index') }}">
+                                {{ config('app.name') }}
+                            </a>
+                        @elseif(Auth::user()->roles()->first()->name == 'admin')
+                        <a class="navbar-brand" href="{{ route('users.index') }}">
+                            {{ config('app.name') }}
+                        </a>
+                        @endif
+                    @endguest
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
@@ -52,16 +64,23 @@
                                 </a>
 
                                 <ul class="dropdown-menu">
-                                        <li>
-                                            <a href=""
-                                                onclick="event.preventDefault();
-                                                    document.getElementById('logout-form').submit();">
-                                                    Profile
-                                            </a>
-        
-                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                                {{ csrf_field() }}
-                                            </form>
+                                    @if(Auth::user()->roles()->first()->name == 'admin')
+                                        <li>                                            
+                                            <a href ="{{ route('users.index', Auth::user()->id) }}">Admin</a>
+                                        </li>
+                                    @endif
+                                        <li>                                            
+                                            <a href ="{{ route('posts.index', Auth::user()->id) }}">Timeline</a>
+                                        </li>
+                                        <li>                                            
+                                            <a href ="{{ route('users.show', Auth::user()->id) }}">Profile</a>
+                                        </li>
+                                        <li style="cursor:pointer;" class="dropdown-submenu">                                            
+                                            <a class="test" tabindex="-1">Settings</a>
+                                            <ul class="left dropdown-menu">
+                                                    <li><a href="{{ route('users.edit', Auth::user()->id) }}" tabindex="-1">General Settings</a></li>
+                                                    <li><a href="{{ route('passwordSettings', Auth::user()->id) }}" tabindex="-1">Change Password</a></li>
+                                            </ul>
                                         </li>
                                     <li>
                                         <a href="{{ route('logout') }}"
@@ -89,3 +108,13 @@
     <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>
+<script>
+        $(document).ready(function(){
+          $('.dropdown-submenu a.test').on("click", function(e){
+            $(this).next('ul').toggle();
+            e.stopPropagation();
+            e.preventDefault();
+          });
+        });
+        </script>
+        

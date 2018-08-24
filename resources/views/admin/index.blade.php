@@ -1,4 +1,4 @@
-@extends('layout.userpage')
+@extends('layouts.app')
 
 @section('content')
 <center>

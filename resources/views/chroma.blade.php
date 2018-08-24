@@ -10,7 +10,7 @@
 
     <style>
         body{
-            background-image: url('{{ asset('storage/bg.jpg') }}');
+            
             background-size:cover;
             background-repeat:no-repeat;
         }
@@ -18,32 +18,101 @@
             height:100%;
             width:100%
         }
+        #bg-holder{
+            background-color: #333;
+            overflow: auto;
+            float:left;
+           
+            height:100%;
+            width:20%;
+        }
+        #canvas-holder{
+            float:left;
+            background-image:url('{{ asset('storage/bg.jpg') }}');
+            height:100%;
+            width:80%;
+        }
+        #nav{
+           
+            
+            width:100%;
+            height:10%;
+        }
+
+        /*#bg-holder a {
+            display: inline-block;
+            color: white;
+            text-align: center;
+            padding: 14px;
+            text-decoration: none;
+        }*/
+        #bg-holder a:hover {
+            background-color: #777;
+        }
+
+        #main{
+            width:100%;
+            height:90%;
+        }
+
+        .choice-img{
+            height:100px;
+            width:80%;     
+            cursor:pointer;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+        }
+
+        body.newbg {
+            background-image:url('{{ asset('storage/bg.jpg') }}');
+        }
+
     </style>
 </head>
 <body>
+    <div id="nav">
+
+    </div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
     <!--<canvas class="canvas" id="p5canvas">Not Supported</canvas>-->
+    <div id="main">
+        <div id="bg-holder">
+            <li><img class="choice-img" id="img" onclick="changeImage(1)" src="{{ asset('storage/bg.jpg') }}"></li>
+            <li><a><img class="choice-img" id="img" onclick="changeImage(2)" src="{{ asset('storage/profile/index.png') }}"></a></li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+        </div>
+        <div id="canvas-holder">
+
+        </div>
+    </div>
 </body>
 </html>
 
 <script>
+
+function changeImage(){
+    document.getElementById('bg-holder').src='img';
+}
+
     var video;
     var canvas;
     var slider;
     var cv;
-    
-    var cw=1000;
-    var ch=500;
-    
+    var canvasDiv = document.getElementById('canvas-holder');
+    var cw=canvasDiv.offsetWidth;
+    var ch=canvasDiv.offsetHeight
+    //var bg = loadImage('{{ asset('storage/bg.jpg') }}');
 
     function setup(){
-        canvas=createCanvas(1000,500, WEBGL, height, width);
-        background(51);
+        
+        //canvas=createCanvas(windowWidth, windowHeight, WEBGL);
+        canvas=createCanvas(cw, ch, WEBGL);
+        //bg = loadImage("{{ asset('storage/bg.jpg') }}");
+        
+        canvas.parent('canvas-holder');
         canvas=canvas.id('p5canvas');
-        canvas.size(cw,ch);
+       //canvas.size(cw,ch);
 
      //background('{{ asset('storage/bg.jpg') }}');
         video=createCapture(VIDEO);
-        video.size(1000,500);
+        video.size(windowWidth,500);
         video.id('p5video');
         video.hide();
 
@@ -72,8 +141,10 @@
 
         seriously.go();
     }
-    function draw(){
-        //image(video, video.offsetWidth, video.offsetHeight);
+    function windowResized() {
+        //resizeCanvas(windowWidth, windowHeight);
     }
-    
+    function draw() {
+        //background(51);
+    }
 </script>

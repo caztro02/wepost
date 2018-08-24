@@ -34,7 +34,7 @@ class LoginController extends Controller
                 return redirect()->route('posts.index');   
         } else if(Auth::user()->roles()->first()->id == '2')
                 return redirect()->route('admin.index');   
-          
+        
         /*if ($user->hasRole('admin')) {
             return redirect()->route('admin.index');
         } else if ($user->hasRole('user')) {
