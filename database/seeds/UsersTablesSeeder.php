@@ -20,8 +20,10 @@ class UsersTablesSeeder extends Seeder
         $user->email = 'illumi@test.com';
         $user->profile = 'index.png';
         $user->password = bcrypt('password');
+        $user->token = str_random(25);
         $user->save();
         $user->roles()->attach($role_user);
+        
     
         $admin = new User();
         $admin->name = 'Administrator';

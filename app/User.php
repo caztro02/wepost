@@ -6,7 +6,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Hash;
-
+Use App\Role;
 class User extends Authenticatable
 {
     use Notifiable;
@@ -18,7 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'profile', 'token'
+        'name', 'email', 'password', 'profile', 'token', 'verified'
     ];
 
     /**
@@ -48,6 +48,9 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Role::class);
     }
+
+//
+
 
    /**
 
@@ -93,14 +96,12 @@ class User extends Authenticatable
 
    
 
-    public function verified()
-    {
-        return $this->token === null;
-    }
+   
 
-    public function sendVerificationEmail()
+    /*public function sendVerificationEmail()
     {
         $this->notify(new VerifyEmail($this));
     }
-
+*/
+    
 }

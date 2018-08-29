@@ -95,3 +95,4 @@ Route::resource('posts', 'PostController')->middleware('auth');
 Auth::routes();
 
 Route::get('/verify/{token}', 'VerifyController@verify')->name('verify');
+Route::get('/verifyEmail', 'VerifyController@verifyEmail')->name('verifyEmail');
