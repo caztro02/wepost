@@ -1,46 +1,54 @@
 //create.blade
-
-
-.ui.inverted.red.button{
-    margin-top: 140%;
-    margin-right: 30px;
-}
-.ui.power.off.icon{
-    margin-left: 100px;
-}
-
 .container.size{
-   width:50%;
-   height:20%;
-   box-shadow: 1px 1px 3px 3px rgb(151, 149, 149);
-   // margin-top: 50px;  
-   // border-radius: 4px;
-  //  border: 1px solid;
-  //  padding: 5px;
-  
-   
+   background-color:rgba(255, 234, 167,1.0);
+   width:60%;
+   height:30%;
+   border-radius:2px;
+  box-shadow: 1px 1px 3px 3px rgb(151, 149, 149);
+  position:relative;
+  overflow:hidden;
 }
 
-.ui.message{
-    height:auto;
-    margin-top: 50px;
-   
+.ui.fluid.massive.input
+{
+    height:80%;
+    
 }
+.ui.fluid.massive.input input::placeholder{
+    color:black;
+    opacity:0.6;
+}
+
+//Index page
+.ui.blue.segment.container{
+    background-color:rgba(255, 234, 167,1.0);
+    width:50%;
+    height:40%;
+    position:relative;
+    overflow:hidden;
+    border-radius:2px;
+   // box-shadow: 1px 1px 3px 3px rgb(151, 149, 149);
+ }
+ .ui.message{
+height:70%;  
+ }
+
+
 
 //Edit.Blade
-.container.white{
-    background-color:papayawhip;
-    opacity: 0.6;
-    height: auto;
-    margin-top:10%;
+.container.size{
+    background-color:  rgba(255, 234, 167,1.0);
+
+  
     
 }
 .container.white h2{
 color:black;
 }
-.field{
-    margin-top: 10%;
-}
+
 .ui.circular.spaced.image{
     width:5%;
+}
+.ui.blue.segment{
+    height:100%;
 }

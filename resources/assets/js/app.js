@@ -27,3 +27,7 @@ $('.slider').glide({
     arrowRightText: '',
     arrowLeftText: ''
   });
+
+
+
+

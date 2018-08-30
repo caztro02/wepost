@@ -10,39 +10,6 @@
     <link rel="stylesheet" href="{{mix('css/app.css')}}">
 </head>
 
-<body>  
-<div class="ui grid"> 
-<div img class="ui fluid image" src="/images/img3.jpg">
-    
-        <div class="ui secondary menu">
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        WePOST
-                    </a>
-            
-                <div class="right menu">
-                    <div class="right item">
-                        <a href="{{ route('login') }}" class="ui medium button">Login</a>
-                    </div>
-                </div>
-        </div>  
-
-    <div  class="ui centered grid">
-          <center>
-             <div class="column">
-                <div class="content">
-                 <i><h1 class="ui massive text">WeP<img class="ui mini circular spaced  image" src="/images/twitter1.png">ST</h1></i>
-                     <p><h3 style="color:black">Conversations are happening whether you are there or not</h3></p>     
-                </div>  
-            </div>
-                    </br>
-                <a href="{{ route('register') }}" class="ui massive inverted violet button">
-                    Register<i class="right arrow icon"></i>
-                </a>
-            </center>
-    </div>
-</div>
-</div>
-
     <div class="ui vertical stripe segment">
         <div class="ui middle aligned stackable grid container">
              
@@ -69,5 +36,4 @@
             </div>
         </div>
     </div>           
-</body>
- 
+</body> 

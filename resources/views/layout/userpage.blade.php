@@ -18,9 +18,9 @@
                         WePOST
                     </a>
             
-                <div class="right menu">
-                        <a href="{{ route('login') }}" class="navbar-brand">Login</a>
-                    
+              <!--
+                        <a href="{{ route('login') }}" class="navbar-brand">Login</a>-->
+                <div class="right menu"> 
                 <ul class="nav navbar-nav">
                 <li class="dropdown">
                         <a href="" class="navbar-brand" data-toggle="dropdown" aria-expanded="false" aria-haspopup="true" v-pre>

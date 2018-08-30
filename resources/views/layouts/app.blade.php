@@ -14,8 +14,8 @@
 </head>
 
 <body img class="ui fluid image" src="/images/img3.jpg">
-    <!--<div id="app">-->
-            <div class="ui secondary menu">
+    <div id="app">
+            <!--<div class="ui secondary menu">
                     <a class="navbar-brand" href="{{ url('/') }}">
                         WePOST
                     </a>
@@ -24,7 +24,7 @@
                        
                                 <a href="{{ route('login') }}" class="navbar-brand">Login</a>
                         <a class="navbar-brand" href="{{ route('register') }}">Register</a>
-                </div>
+                </div>-->
          
 
                 <div class="navbar-header">

@@ -19,18 +19,38 @@
 <link rel="stylesheet" href="{{mix('css/app.css')}}">
 
 </head>
-<!--<body>
-    <div class="ui container">
-        <div class="ui modal">
+<body>
+        <div class="ui grid"> 
+                <div img class="ui fluid image" src="/images/img3.jpg">
 
+                    <div class="ui secondary menu">
+                            <div class="left item">
+                                    <a href="{{ url('/') }}" class="navbar-brand">WePOST</a>
+                                </div>
+                            
+                                <div class="right menu">
+                                    <div class="right item">
+                
+                                        <a href="{{ route('login') }}" class="navbar-brand">Login</a>
+                                    </div>
+                                </div>
+                        </div>  
+                
+                    <div  class="ui centered grid">
+                          <center>
+                             <div class="column">
+                                <div class="content">
+                                 <h1 class="ui massive text">WeP<img class="ui mini circular spaced  image" src="/images/twitter1.png">ST</h1>
+                                     <h2>"Conversations are happening whether you are there or not"</h2>    
+                                </div>  
+                            </div>
+                                    </br>
+                                <a href="{{ route('register') }}" class="ui massive primary button">
+                                    Register<i class="right arrow icon"></i>
+                                </a>
+                            </center>
+                    </div>
+                </div>
             </div>
-        </div> -->
 
-
-
-<script>
-
-</script>
-
-</body>          
-
+</body>

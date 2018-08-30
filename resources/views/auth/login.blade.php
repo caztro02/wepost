@@ -11,10 +11,22 @@
     <link rel="stylesheet" href="{{mix('css/app.css')}}"> 
 
 @section('content')
+<body>  
+        <div class="ui secondary menu">
+                <div class="left item">
+                        <a href="{{ url('/') }}" class="navbar-brand">WePOST</a>
+                    </div>
+                
+                    <div class="right menu">
+                        <div class="right item">
+                            <a href="{{ route('register') }}" class="navbar-brand" >Register</a>
+                        </div>
+                    </div>
+            </div> 
 
-<i><h3 class="ui center aligned header">WePost</h3></i>
+<i><h3 class="ui center aligned header">WePOST</h3></i>
 
-<div class="ui container size">
+<div class="ui container width">
      <center><h3>Login</h3></center>
                     <form class="ui massive form" method="POST" action="{{ route('login') }}">
                         {{ csrf_field() }}
@@ -22,7 +34,7 @@
                 <div class="inline field">
                    <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                     <label style="color:teal" for="email">E-Mail Address</label>
-                    <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required >
+                    <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required placeholder="@example.com">
                  
                             @if ($errors->has('email'))
                             <span class="help-block">
@@ -36,7 +48,7 @@
                 <div class="inline field">
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                     <label style="color:teal" for="password">Password</label>
-                    <input id="password" type="password" class="form-control" name="password" required>
+                    <input id="password" type="password" class="form-control" name="password" required placeholder="Password">
 
                             @if ($errors->has('password'))
                             <span class="help-block">
@@ -52,8 +64,7 @@
                                 </label>
                             </div>
                         
-            
-
+        
                  <button class="fluid massive ui teal button" type="submit">Login</button>
 
                                 <a class="btn btn-link" href="{{ route('password.request') }}">
@@ -62,10 +73,10 @@
 
             </form>
         </div>
-
-        
+  
+</body>     
             @endsection
-
+      
 
                        <!-- <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <label style="color:black"for="email" class="col-md-4 control-label">E-Mail Address</label>

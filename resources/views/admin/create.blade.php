@@ -17,21 +17,19 @@
     </head>
 
 <center>
-
-
     <form method="post" action={{ route('users.store') }} enctype="multipart/form-data">
       {{csrf_field()}}
         <div class="ui form black">
-                <div class="ui middle aligned center aligned grid">
+          <div class="ui middle aligned center aligned grid">
                         <div class="column">
-                          <h2 class="ui teal image header">
-                              <img class="ui circular image" src="/images/user.png">
+                          <h5 class="ui grey icon header">
+                              <i class="ui user icon"></i>
                             <div class="content">
-                              <h3 style="color:black"><b>Add Users</b></h3>
+                              <h5 style="color:teal"><b>Add Users</b></h5>
                             </div>
                           </h2>
                          
-                            <div class="ui stacked segment">
+                            <div class="ui stacked segment white">
                               <div class="field white">
                                 <div class="ui massive left icon input">
                                   <i class=" user icon"></i>
@@ -50,7 +48,9 @@
                                       <input type="password" name="password" placeholder="Password">
                                     </div>
                                   </div>
-                                  <input type="file" name="profile" id="file">
+                                  
+                                  <input class="field white" type="file" name="profile" id="file">
+                              
                                  <div class="ui huge fluid buttons">
                                     <button class="ui linkedin button" type="submit" name="edit">Add</button>
                                     <button class="ui teal button" href ="{{ route('users.index') }}"/>Cancel</button></a>

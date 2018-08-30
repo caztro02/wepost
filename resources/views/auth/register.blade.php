@@ -1,33 +1,40 @@
 @extends('layouts.app')
 
-@section('content')
-
-<meta charset="utf-8">
+<head>
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <!--Style for Login-->
-    
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.css">  
     <link rel="stylesheet" href="<?php echo asset('css/register.css')?>" type="text/css">
     <link rel="stylesheet" href="{{mix('css/app.css')}}"> 
+</head>
 
- <!--  <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Register</div>
+    @section('content')
+<body>
+        <div class="ui secondary menu">
+                <div class="left item">
+                        <a href="{{ url('/') }}" class="navbar-brand">WePOST</a>
+                    </div>
+                
+                    <div class="right menu">
+                        <div class="right item">
+                                <a href="{{ route('login') }}" class="navbar-brand">Login</a>
+                        </div>
+                    </div>
+            </div> 
 
-                <div class="panel-body">-->
-<i><h3 class="ui center aligned header">WePOST</h3></i>
+
+<h2 class="ui center aligned header">WePOST</h2>
 <div class="ui container width">
     <center>
         <h3><b>Register</b></h3>
     </center>
     
-    <form class="ui huge form" method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
+    <form class="ui large form" method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
         {{ csrf_field() }}
 
-    <div class="field">
+    <div class="inline field">
         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
             <label for="name">Name</label>
                 <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required placeholder="Name">
@@ -40,7 +47,7 @@
             </div>
         </div>
         
-        <div class="field">
+        <div class="inline field">
                 <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                     <label for="email">E-Mail Address</label>
                     <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required placeholder="E-Mail">
@@ -54,7 +61,7 @@
                 </div>
         </div>
 
-        <div class="field">
+        <div class="inline field">
             <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                 <label  for="password">Password</label>
                 <input id="password" type="password" class="form-control" name="password" required placeholder="Password">
@@ -73,20 +80,26 @@
         <div class="inline field">
             <label for="password-confirm">Confirm Password</label>
                  <input id="password-confirm" type="password"  name="password_confirmation" required placeholder="Confirm Password">
-             </div>
-
-                    <button class="ui fluid massive teal button" type="submit">Register</button>      
-
+                </div>
+                 <button class="ui fluid large teal button" type="submit">Register</button> 
+                            
     </form>
 </div>
+
 
 <div style="position:fixed; bottom:0;width: 100%; color:black " class="ui centered footer">
         <center><p>Created  By: Isla and Gaowther</p></center>
       
 </div>
+</body>
 @endsection
         
-        
+         <!--  <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">Register</div>
+
+                <div class="panel-body">-->
         <!--<div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                             <label for="name" class="col-md-4 control-label">Name</label>
 

@@ -4,15 +4,21 @@
 
 }
 
-
 .ui.center.aligned.header{
-  color:#273c75;
-  font-size: 40px;
+  font-family: "Times New Roman", Times, serif;
+  font-style: oblique;
+  color:gray;
+  font-size: 4em;
 
   //margin-left: 300px;
   
 }
 h3{
   color:teal
+}
+
+.inline.field input::placeholder{
+  color:black;
+  opacity:0.6;
 }
 

@@ -9,9 +9,13 @@ background-repeat:no-repeat;
  }
 
 .ui.massive.text{
-  color:#273c75;
+  font-family: "Times New Roman", Times, serif;
+  font-style: oblique;
   margin-top: 10%;
-  font-size:90px;
+  font-size: 10em;
+
+
+  
 }
 .ui.mini.circular.spaced.image{
   width:80px;
@@ -27,9 +31,7 @@ h1{
   margin:0px;
   //margin-left: 300px;
   
-}
-h3{
-  color: black;
+
 
 }
 .field input{
@@ -41,6 +43,13 @@ h3{
   margin:0px;
   padding:30px;
 
+}
+.navbar-brand{
+  font-size: 25px;
+}
+.content h3{
+  color:#1e90ff;
+  //text-shadow:  1px 0 black, 0 -1px black;
 }
 
 

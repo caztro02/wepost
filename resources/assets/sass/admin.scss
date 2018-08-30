@@ -9,12 +9,9 @@
   
 
 }
-.field.white{
-    width: 530px;
- 
-}
 
-.ui.stacked.segment{
+
+.ui.stacked.segment.white{
     margin-top: 10px;
     background-color:rgba(236, 240, 241,1.0)
 }
@@ -27,10 +24,13 @@
     width: 600px;
     height:320px;
     margin-top: 80px;
-    background-color:rgba(236, 240, 241,1.0);
+    background-color:rgba(255, 234, 167,1.0);
     border-radius:4px;
 }
 .ui.inverted.secondary.button{
     margin-left:10px;
+}
+.container{
+    box-shadow: 1px 1px 2px 2px rgb(151, 149, 149);
 }
 

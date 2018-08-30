@@ -35,11 +35,11 @@
           <h2 class="ui teal image header">
               <img class="ui circular image" src="/images/twitter1.png">
             <div class="content">
-              <h3>Edit User</h3>
+              <h1 class="ui black header">Edit User</h3>
             </div>
           </h2>
          
-            <div class="ui stacked segment">
+            <div class="ui stacked segment white">
               <div class="field white">
                 <div class="ui massive left icon input">
                   <i class=" user icon"></i>
@@ -58,26 +58,13 @@
                       <input type="password" name="password" placeholder="Password" value={{ "$data->password" }} />
                     </div>
                   </div>
+                  <input type="file" name="profile" id="file"><br />
                  <div class="ui huge fluid buttons">
-                    <button class="ui linkedin button" type="submit" name="edit">Edit</button>
+                    <button class="ui linkedin button" type="submit" name="edit">Save</button>
                     <button class="ui teal button" href ="{{ route('admin.index') }}"/>Cancel</button></a>
                   </div>
       
           </form>
 </div>     
 
-
- <!-->   
-    <input type="text" name="name" placeholder="Name" value="{{ $data->name }}" /><br>
-    <input type="email" name="email" placeholder="Email" value={{ "$data->email" }} /><br>
-    
-    <input type="password" name="password" placeholder="Password" value={{ "$data->password" }} /><br>
-    <input type="file" name="profile" id="file"><br />
-    <button type="submit" name="edit">Edit</button>
-    
-</form>
-
-<a href ="{{ route('users.index') }}"/><button>Cancel</button></a>
-</center>
- development-->
 @endsection

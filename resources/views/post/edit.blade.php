@@ -7,31 +7,27 @@
  <body img class="ui fluid image" src="/images/pink.jpg">
 
 
-    <div class="container white">
-      <h2><b>Add Users</b></h2>
-        <form class="ui massive form" method="post" action={{ route('posts.update', $data->id) }}>
+    <div class="container size">
+        <form class="ui form" method="post" action={{ route('posts.update', $data->id) }}>
             {{ method_field('PUT') }}
             {{csrf_field()}}
-   <br>
-   
-            <input type="hidden" name="email" value="test@test.com"/>
-                <div class="field">
-                <input type="text" name="content" value ="{{ $data->content }}"placeholder="Username"/>
-                </div>
-            
-                <div class="ui fluid huge buttons">
+            <h1 class="ui floated blue header">Edit POST</h1>
+            <div class="ui right floated buttons">
                     <button class="ui primary button" type="submit" name="post">Edit</button>
-                <div class="ui or"></div>
+                    <div class="ui or"></div>
                     <a class="ui primary button" href ="{{ route('posts.index') }}"/>Cancel</a>
+            </div>
+            
+                <div class="ui clearing divider"></div>
+
+                    <section class="flexbox">
+                        <div class="ui fluid massive input">
+                            <input type="hidden" name="id" value="{{ $data->id }}"/>
+                            <input type="text" class="post_content" name="content" value ="{{ $data->content }}"placeholder="Edit Your Post!!!"/>
+                        </div>
+            </section>        
         </form>
     </div>
-<!--
-    <input type="hidden" name="id" value="{{ $data->id }}"/>
-<input type="text" class="post_content" name="content" value ="{{ $data->content }}"placeholder="What's on your mind?"/>
-    <button type="submit" name="post">Edit</button>
-    
-</form>
-development-->
 
 </center>
 </body>
