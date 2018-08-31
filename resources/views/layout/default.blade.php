@@ -52,5 +52,7 @@
                     </div>
                 </div>
             </div>
+<!---JScript-->
 
+<script src="{{ asset('js/animation.js') }}"></script>
 </body>
