@@ -91,6 +91,9 @@ Route::post('/changePassword', 'UserController@changePassword')
 Route::resource('admin', 'AdminController')->middleware('admin');
 Route::resource('users', 'UserController')->middleware('auth');
 Route::resource('posts', 'PostController')->middleware('auth');
+Route::resource('comments', 'CommentController')->middleware('auth');
+
+
 
 Auth::routes();
 

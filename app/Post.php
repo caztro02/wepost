@@ -15,12 +15,17 @@ class Post extends Model
      * @var array
      */
     protected $fillable = [
-        'content', 'email'
+        'content', 'id'
     ];
 
     public function user()
     {
         return $this->belongsTo('App\User')->withTrashed();
+    }
+
+    public function comments()
+    {
+        return $this->hasMany('App\Comment');
     }
 
 }

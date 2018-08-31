@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Post;
+use App\Comment;
 use DB;
 
 class PostController extends Controller
@@ -16,8 +17,8 @@ class PostController extends Controller
      */
     public function index()
     {
+        
         $post = Post::all();
-       
 
         $post = new Post;
 

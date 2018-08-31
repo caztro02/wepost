@@ -74,9 +74,17 @@
     <!--<canvas class="canvas" id="p5canvas">Not Supported</canvas>-->
     <div id="main">
         <div id="bg-holder">
-            <li><img class="choice-img" id="img" onclick="changeImage(1)" src="{{ asset('storage/bg.jpg') }}"></li>
-            <li><a><img class="choice-img" id="img" onclick="changeImage(2)" src="{{ asset('storage/profile/index.png') }}"></a></li>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+            <li><a><img class="choice-img" id="img1" onclick="bg1()"  src="{{ asset('storage/bg/bg1.jpg') }}"></a></li>
+            <li><a><img class="choice-img" id="img2" onclick="bg2()" src="{{ asset('storage/bg/bg2.jpg') }}"></a></li>
+            <li><a><img class="choice-img" id="img3" onclick="bg3()" src="{{ asset('storage/bg/bg3.jpg') }}"></a></li>
+            <li><a><img class="choice-img" id="img4" onclick="bg4()" src="{{ asset('storage/bg/bg4.jpg') }}"></a></li>
+            <li><a><img class="choice-img" id="img5" onclick="bg5()" src="{{ asset('storage/bg/bg5.jpg') }}"></a></li>
+            <li><a><img class="choice-img" id="img6" onclick="bg6()" src="{{ asset('storage/bg/bg6.jpg') }}"></a></li>
+            <li><a><img class="choice-img" id="img7" onclick="bg7()" src="{{ asset('storage/bg/bg7.jpg') }}"></a></li>
+            <li><a><img class="choice-img" id="img8" onclick="bg8()" src="{{ asset('storage/bg/bg8.jpg') }}"></a></li>
+            <li><a><img class="choice-img" id="img9" onclick="bg9()" src="{{ asset('storage/bg/bg9.jpeg') }}"></a></li>
+            <li><a><img class="choice-img" id="img10" onclick="bg10()" src="{{ asset('storage/bg/bg10.jpg') }}"></a></li>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
         </div>
         <div id="canvas-holder">
 
@@ -88,9 +96,88 @@
 
 <script>
 
-function changeImage(){
-    document.getElementById('bg-holder').src='img';
+function bg1(){
+    var ih="100%";
+    var iw="80%";
+   // document.getElementById('bg-holder').src='{{ asset('storage/profile/index.png') }}';
+    document.getElementById('canvas-holder').style.backgroundImage = "url('{{ asset('storage/bg/bg1.jpg') }}')"
+    document.getElementById('canvas-holder').style.backgroundRepeat = "no-repeat"
+    document.getElementById('canvas-holder').style.backgroundSize = "cover"
 }
+function bg2(){
+    var ih="100%";
+    var iw="80%";
+   // document.getElementById('bg-holder').src='{{ asset('storage/profile/index.png') }}';
+    document.getElementById('canvas-holder').style.backgroundImage = "url('{{ asset('storage/bg/bg2.jpg') }}')"
+    document.getElementById('canvas-holder').style.backgroundRepeat = "no-repeat"
+    document.getElementById('canvas-holder').style.backgroundSize = "cover"
+}
+function bg3(){
+    var ih="100%";
+    var iw="80%";
+   // document.getElementById('bg-holder').src='{{ asset('storage/profile/index.png') }}';
+    document.getElementById('canvas-holder').style.backgroundImage = "url('{{ asset('storage/bg/bg3.jpg') }}')"
+    document.getElementById('canvas-holder').style.backgroundRepeat = "no-repeat"
+    document.getElementById('canvas-holder').style.backgroundSize = "cover"
+}
+function bg4(){
+    var ih="100%";
+    var iw="80%";
+   // document.getElementById('bg-holder').src='{{ asset('storage/profile/index.png') }}';
+    document.getElementById('canvas-holder').style.backgroundImage = "url('{{ asset('storage/bg/bg4.jpg') }}')"
+    document.getElementById('canvas-holder').style.backgroundRepeat = "no-repeat"
+    document.getElementById('canvas-holder').style.backgroundSize = "cover"
+}
+function bg5(){
+    var ih="100%";
+    var iw="80%";
+   // document.getElementById('bg-holder').src='{{ asset('storage/profile/index.png') }}';
+    document.getElementById('canvas-holder').style.backgroundImage = "url('{{ asset('storage/bg/bg5.jpg') }}')"
+    document.getElementById('canvas-holder').style.backgroundRepeat = "no-repeat"
+    document.getElementById('canvas-holder').style.backgroundSize = "cover"
+}
+function bg6(){
+    var ih="100%";
+    var iw="80%";
+   // document.getElementById('bg-holder').src='{{ asset('storage/profile/index.png') }}';
+    document.getElementById('canvas-holder').style.backgroundImage = "url('{{ asset('storage/bg/bg6.jpg') }}')"
+    document.getElementById('canvas-holder').style.backgroundRepeat = "no-repeat"
+    document.getElementById('canvas-holder').style.backgroundSize = "cover"
+}
+function bg7(){
+    var ih="100%";
+    var iw="80%";
+   // document.getElementById('bg-holder').src='{{ asset('storage/profile/index.png') }}';
+    document.getElementById('canvas-holder').style.backgroundImage = "url('{{ asset('storage/bg/bg7.jpg') }}')"
+    document.getElementById('canvas-holder').style.backgroundRepeat = "no-repeat"
+    document.getElementById('canvas-holder').style.backgroundSize = "cover"
+}
+function bg8(){
+    var ih="100%";
+    var iw="80%";
+   // document.getElementById('bg-holder').src='{{ asset('storage/profile/index.png') }}';
+    document.getElementById('canvas-holder').style.backgroundImage = "url('{{ asset('storage/bg/bg8.jpg') }}')"
+    document.getElementById('canvas-holder').style.backgroundRepeat = "no-repeat"
+    document.getElementById('canvas-holder').style.backgroundSize = "cover"
+}
+function bg9(){
+    var ih="100%";
+    var iw="80%";
+   // document.getElementById('bg-holder').src='{{ asset('storage/profile/index.png') }}';
+    document.getElementById('canvas-holder').style.backgroundImage = "url('{{ asset('storage/bg/bg9.jpeg') }}')"
+    document.getElementById('canvas-holder').style.backgroundRepeat = "no-repeat"
+    document.getElementById('canvas-holder').style.backgroundSize = "cover"
+}
+function bg10(){
+    var ih="100%";
+    var iw="80%";
+   // document.getElementById('bg-holder').src='{{ asset('storage/profile/index.png') }}';
+    document.getElementById('canvas-holder').style.backgroundImage = "url('{{ asset('storage/bg/bg10.jpg') }}')"
+    document.getElementById('canvas-holder').style.backgroundRepeat = "no-repeat"
+    document.getElementById('canvas-holder').style.backgroundSize = "cover"
+}
+
+
 
     var video;
     var canvas;

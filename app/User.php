@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Hash;
 Use App\Role;
+Use App\Comment;
 class User extends Authenticatable
 {
     use Notifiable;
@@ -37,6 +38,13 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Post');
     }   
+
+    public function comments()
+    {
+        return $this->hasMany('App\Comment');
+    }
+
+    
 //
     public function setPasswordAttribute($password)
     {
