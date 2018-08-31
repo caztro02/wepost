@@ -13,15 +13,10 @@
     @section('content')
 <body>
         <div class="ui secondary menu">
-                <div class="left item">
+           
                         <a href="{{ url('/') }}" class="navbar-brand">WePOST</a>
-                    </div>
+                   
                 
-                    <div class="right menu">
-                        <div class="right item">
-                                <a href="{{ route('login') }}" class="navbar-brand">Login</a>
-                        </div>
-                    </div>
             </div> 
 
 

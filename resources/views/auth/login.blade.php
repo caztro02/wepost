@@ -13,16 +13,10 @@
 @section('content')
 <body>  
         <div class="ui secondary menu">
-                <div class="left item">
                         <a href="{{ url('/') }}" class="navbar-brand">WePOST</a>
-                    </div>
                 
-                    <div class="right menu">
-                        <div class="right item">
-                            <a href="{{ route('register') }}" class="navbar-brand" >Register</a>
-                        </div>
-                    </div>
-            </div> 
+                
+                </div>
 
 <i><h3 class="ui center aligned header">WePOST</h3></i>
 
