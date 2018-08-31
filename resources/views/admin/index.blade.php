@@ -17,6 +17,7 @@
     </tr>
     @foreach($data as $value)
     <tr>
+
             <th><img style="width:50px;height:50px;" src="/storage/profile/{{ $value->profile }}"/></th>
             <td><a href="{{ route('admin.show', $value->id) }}">{{ $value -> name }}</a></td>
             <td>{{ $value -> email }}</td>
