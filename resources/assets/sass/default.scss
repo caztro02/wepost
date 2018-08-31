@@ -1,0 +1,55 @@
+.ui.fluid.image{
+  background-image: url("/images/img3.jpg"); 
+background-repeat:no-repeat;
+  background-size:cover;
+   font-family: 'Arial';
+ }
+ .ui.grid{
+   height:100%;
+ }
+
+.ui.massive.text{
+  font-family: "Times New Roman", Times, serif;
+  font-style: oblique;
+  margin-top: 10%;
+  font-size: 10em;
+
+
+  
+}
+.ui.mini.circular.spaced.image{
+  width:80px;
+}
+.ui.middle.aligned.stackable.grid.container{
+  box-shadow:none;
+  margin-top:20%;
+}
+
+//for login
+h1{
+  font-size: 50px;
+  margin:0px;
+  //margin-left: 300px;
+  
+
+
+}
+.field input{
+  width:200px;
+}
+
+.container{
+  height:auto;
+  margin:0px;
+  padding:30px;
+
+}
+.navbar-brand{
+  font-size: 25px;
+}
+.content h3{
+  color:#1e90ff;
+  //text-shadow:  1px 0 black, 0 -1px black;
+}
+
+

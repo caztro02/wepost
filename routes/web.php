@@ -16,6 +16,43 @@
 //Route::get(
  //   '/', 'LoginController@login'
 //);
+/*
+Route::get(
+    '/login', function () {
+         return view('pages.login');
+    }   
+);*/ 
+
+Route::get(
+    '/signup', function () {
+         return view('pages.signup');
+    }   
+); 
+
+Route::get(
+    '/status', function () {
+         return view('pages.status');
+    }   
+); 
+
+Route::get(
+    '/', function () {
+         return view('layout.default');
+    }   
+);
+
+Route::get(
+    '/extend', function () {
+         return view('extend');
+    }   
+);
+
+Route::get(
+    '/header', function () {
+         return view('includes.header');
+    }   
+); 
+
 
 /*
 Route::get(
@@ -25,6 +62,7 @@ Route::get(
 /*Route::get(
     '/login', 'LoginController@index'
 );*/
+
 
 //Route::post(
 //    '/login', 'LoginController@login'
@@ -58,11 +96,11 @@ Route::get(
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get(
+/*Route::get(
     '/', function() {
         return view('welcome');
     }
-);
+);*/
 
 Route::get(
     '/camera', function() {
@@ -95,7 +133,9 @@ Route::resource('comments', 'CommentController')->middleware('auth');
 
 
 
+
 Auth::routes();
 
 Route::get('/verify/{token}', 'VerifyController@verify')->name('verify');
 Route::get('/verifyEmail', 'VerifyController@verifyEmail')->name('verifyEmail');
+

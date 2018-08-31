@@ -1,4 +1,3 @@
-<!doctype html>
 <html lang="{{ app()->getLocale() }}">
     <head>
         <meta charset="utf-8">
@@ -8,87 +7,95 @@
         <title>Laravel</title>
 
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.css">  
+        <link rel="stylesheet" href="<?php echo asset('css/posts.css')?>" type="text/css">
+        <link rel="stylesheet" href="{{mix('css/app.css')}}">
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
+  <body img class="ui fluid image" src="/images/img3.jpg">
+    <div class="ui secondary menu">
+                @if(Auth::user()->roles()->first()->name == 'user')
+                    <a class="navbar-brand" href="{{ route('posts.index') }}">
+                        {{ config('app.name') }}
+                    </a>
+                @elseif(Auth::user()->roles()->first()->name == 'admin')
+                <a class="navbar-brand" href="{{ route('users.index') }}">
+                    {{ config('app.name') }}
+                </a>
+                @endif
+    
+      <!--
+                <a href="{{ route('login') }}" class="navbar-brand">Login</a>-->
+        <div class="right menu"> 
+        <ul class="nav navbar-nav">
+        <li class="dropdown">
+                <a href="" class="navbar-brand" data-toggle="dropdown" aria-expanded="false" aria-haspopup="true" v-pre>
+                    {{ Auth::user()->name }} <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                        @if(Auth::user()->roles()->first()->name == 'admin')
+                            <li>                                            
+                                <a href ="{{ route('users.index', Auth::user()->id) }}">Admin</a>
+                            </li>
+                        @endif
+                            <li>                                            
+                                <a href ="{{ route('posts.index', Auth::user()->id) }}">Timeline</a>
+                            </li>
+                            <li>                                            
+                                <a href ="{{ route('users.show', Auth::user()->id) }}">Profile</a>
+                            </li>
+                            <li style="cursor:pointer;" class="dropdown-submenu">                                            
+                                <a class="test" tabindex="-1">Settings</a>
+                                <ul class="left dropdown-menu">
+                                        <li><a href="{{ route('users.edit', Auth::user()->id) }}" tabindex="-1">General Settings</a></li>
+                                        <li><a href="{{ route('passwordSettings', Auth::user()->id) }}" tabindex="-1">Change Password</a></li>
+                                </ul>
+                            </li>
+                        <li>
+                            <a href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                         document.getElementById('logout-form').submit();">
+                                Logout
+                            </a>
 
-            .full-height {
-                height: 100vh;
-            }
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                {{ csrf_field() }}
+                            </form>
+                        </li>
+                    </ul>
+                
+            </li>
+        </ul>
+</div> 
+</div>
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
 
-            .position-ref {
-                position: relative;
-            }
+<center>
+<div>
+@yield('content')
+</div>
+<!--</center>
+<div style="position:fixed; bottom:0;width: 100%; color:black" class="ui footer">
+        <center><p>Created  By: Isla and Gaowther</p></center>
+       
+ </div>-->
 
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
 
-            .content {
-                text-align: center;
-            }
+<!-- Scripts -->
 
-            .title {
-                font-size: 84px;
-            }
 
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-            
-            input[type="text"] {
-                margin: 0;
-            }
-            input[type="password"] {
-                margin: 0;
-            }
-            label h3{
-                margin: 0;
-            }
 
-            .post_form{
-                width:100%;
-            }
-            .post_content{
-                width:300px;
-                height:100px;
-            }
-            .post{
-                border-bottom-style: solid;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-            
-        @yield('content')
+</body>
+</html>
+<script src="{{ asset('js/app.js') }}"></script>
+<script>
+        $(document).ready(function(){
+          $('.dropdown-submenu a.test').on("click", function(e){
+            $(this).next('ul').toggle();
+            e.stopPropagation();
+            e.preventDefault();
+          });
+        });
+</script>
         
-        
-    </body>
+</body>
 </html>

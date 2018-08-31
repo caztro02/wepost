@@ -1,0 +1,24 @@
+.ui.container.size{
+  height:auto;
+  width:30%;
+
+}
+
+.ui.center.aligned.header{
+  font-family: "Times New Roman", Times, serif;
+  font-style: oblique;
+  color:gray;
+  font-size: 4em;
+
+  //margin-left: 300px;
+  
+}
+h3{
+  color:teal
+}
+
+.inline.field input::placeholder{
+  color:black;
+  opacity:0.6;
+}
+

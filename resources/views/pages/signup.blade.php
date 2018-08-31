@@ -1,15 +1,48 @@
-@extends('layout.app')
+
+<!doctype html>
+
+    <head>
+        <title>Signup @yield('title')</title>
+       
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.css">  
+        <link rel="stylesheet" href="<?php echo asset('css/signup.css')?>" type="text/css">
+        <link rel="stylesheet" href="{{mix('css/app.css')}}">  
+    </head>
+
+    @extends('layout.app')
 
 @section('content')
+<body img class="ui fluid image" src="/images/img3.jpg">
+    <center>
+        <h1><i>WePost</i></h1>
+    </center>
+    <br>
+
+   <div class="container">
     <h2>Sign Up</h2>
-    <form method="post" action={{ url('/signup') }}>
+    
+        <form class="ui massive form"  method="post" action={{ url('/signup') }}>
             {{csrf_field()}}
+           <div class="field">
+                 <label style="float:left">Name:</label>
+                    <input type="text" name="name" required placeholder="Name" />
+            </div>
 
-            <input type="text" name="name" placeholder="Name" /><br>
-            <input type="email" name="email" placeholder="Email" /><br>
-            <input type="password" name="password" placeholder="Password" /><br>
+            <div class="field">
+                <label style="float:left">Email:</label>
+                    <input type="email" name="email" required placeholder="@email.com" />
+            
+            </div>
+            
+            <div class="field">
+                <label style="float:left">Password:</label>
+                     <input type="password" name="password" required placeholder="Password" />
+            </div>
 
-            <input type="submit" name="signup" value="Sign Up" />
+            <div>
+                <input class="ui fluid massive google plus button" type="submit" name="signup" value="Sign Up" />
+           </div>
+        </div>
         </form>
-        
+    </body>
 @endsection

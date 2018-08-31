@@ -74,12 +74,14 @@ class UserController extends Controller
         $users->email = $request-> email;
         $users->name = $request-> name;
         $users->password = $request-> password;
+
         $users->profile = $fileNameToStore; 
         
         $users->save();
         $user_role=Role::where('name', 'user')->first();
         $users->roles()->attach($user_role);
         return redirect()->route('users.index'); 
+
     }
 
     /**

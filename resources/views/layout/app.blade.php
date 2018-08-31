@@ -1,4 +1,6 @@
 <!doctype html>
+
+
 <html lang="{{ app()->getLocale() }}">
     <head>
         <meta charset="utf-8">
@@ -8,75 +10,38 @@
         <title>Laravel</title>
 
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.css">  
+        <link rel="stylesheet" href="<?php echo asset('css/login.css')?>" type="text/css">
+        <link rel="stylesheet" href="{{mix('css/app.css')}}">
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-            
-            input[type="text"] {
-                margin: 0;
-            }
-            input[type="password"] {
-                margin: 0;
-            }
-            label h3{
-                margin: 0;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
     </head>
+    
     <body>
+ 
+        <div  class="ui massive inverted menu">
+                <a class="item">
+                        WePost
+                      </a>
+                <a class="item">
+                  About 
+                </a>
+                
+              <!--  <div class="right menu">
+                    <div class="item">
+                                <div class="ui facebook button">Login</div>
+                            <div class="item">
+                                 <div class="ui youtube button">Sign Up</div>
+                            </div>
+                    </div> 
+                </div>-->
+        </div>
+        <diV>
     <center>
         @yield('content')
     </center>
-    </body>
+
+    <div style="position:fixed; bottom:0;width: 100%;"class="ui inverted  vertical footer segment">
+           <center><p>Created  By: Isla and Gaowther</p></center>
+          
+</body>
 </html>

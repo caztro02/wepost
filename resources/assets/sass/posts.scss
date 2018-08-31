@@ -1,0 +1,54 @@
+//create.blade
+.container.size{
+   background-color:rgba(255, 234, 167,1.0);
+   width:60%;
+   height:30%;
+   border-radius:2px;
+  box-shadow: 1px 1px 3px 3px rgb(151, 149, 149);
+  position:relative;
+  overflow:hidden;
+}
+
+.ui.fluid.massive.input
+{
+    height:80%;
+    
+}
+.ui.fluid.massive.input input::placeholder{
+    color:black;
+    opacity:0.6;
+}
+
+//Index page
+.ui.blue.segment.container{
+    background-color:rgba(255, 234, 167,1.0);
+    width:50%;
+    height:40%;
+    position:relative;
+    overflow:hidden;
+    border-radius:2px;
+   // box-shadow: 1px 1px 3px 3px rgb(151, 149, 149);
+ }
+ .ui.message{
+height:70%;  
+ }
+
+
+
+//Edit.Blade
+.container.size{
+    background-color:  rgba(255, 234, 167,1.0);
+
+  
+    
+}
+.container.white h2{
+color:black;
+}
+
+.ui.circular.spaced.image{
+    width:5%;
+}
+.ui.blue.segment{
+    height:100%;
+}
