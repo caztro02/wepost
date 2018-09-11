@@ -22,7 +22,7 @@ class PostController extends Controller
 
         $post = new Post;
 
-        $data['data'] = $post->orderBy('created_at', 'DESC')->get();
+        $data['data'] = $post->orderBy('created_at', 'DESC')->paginate(3);
 
         if (count('data[0]') >0 ) {
             return view('post.index', $data);

@@ -9,8 +9,13 @@
         <label for="email">Email</label><br>
         <input type="email" name="email" placeholder="Email" value={{ "$data->email" }} readonly/><br>
     @if(Auth::user()->id == $data->id)
-        <a href ="{{ route('users.edit', $data->id) }}"/><button>Edit</button></a>
+        <a href ="{{ route('users.edit', $data->id) }}"><button>Edit</button></a>
+    @elseif(Auth::user()->id != $data->id)
+        
+       
+        <a href="{{ route('add', $data->id)}}"><button>Add</button></a>
+        
     @endif
-        <a href ="{{ route('posts.index') }}"/><button>Back</button></a>
+        <a href ="{{ route('posts.index') }}"><button>Back</button></a>
     </center>
 @endsection

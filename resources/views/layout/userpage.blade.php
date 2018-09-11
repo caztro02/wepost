@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
     <head>
-            <title>Laravel</title>
+            <title>WePOST</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,9 +14,15 @@
 
     <body style="background-color: rgba(52, 73, 94,1.0)">
             <div class="ui secondary menu">
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        WePOST
-                    </a>
+                @if(Auth::user()->roles()->first()->name == 'user')
+                <a class="navbar-brand" href="{{ route('posts.index') }}">
+                   WePOST
+                </a>
+            @elseif(Auth::user()->roles()->first()->name == 'admin')
+            <a class="navbar-brand" href="{{ route('users.index') }}">
+                WePOST
+            </a>
+            @endif
             
               <!--
                         <a href="{{ route('login') }}" class="navbar-brand">Login</a>-->

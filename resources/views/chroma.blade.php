@@ -4,6 +4,7 @@
         <script src="{{ asset('js/libraries/p5.dom.js')}}"></script>
         <script src="{{ asset('js/libraries/p5.sound.js')}}"></script>
         <script src="{{ asset('js/libraries/seriously.js')}}"></script>
+        <script src="{{ asset('js/libraries/html2canvas.js')}}"></script>
         <script src="{{ asset('js/libraries/effects/seriously.blur.js')}}"></script>
         <script src="{{ asset('js/libraries/effects/seriously.chroma.js')}}"></script>
 
@@ -14,7 +15,7 @@
             background-size:cover;
             background-repeat:no-repeat;
         }
-        .canvas{
+        .p5canvas{
             height:100%;
             width:100%
         }
@@ -28,7 +29,7 @@
         }
         #canvas-holder{
             float:left;
-            background-image:url('{{ asset('storage/bg.jpg') }}');
+            
             height:100%;
             width:80%;
         }
@@ -69,6 +70,7 @@
 </head>
 <body>
     <div id="nav">
+        <button onclick="save()" id="save">Save</button>
 
     </div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
     <!--<canvas class="canvas" id="p5canvas">Not Supported</canvas>-->
@@ -87,7 +89,7 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
         </div>
         <div id="canvas-holder">
-
+            <canvas class="p5canvas" id="p5canvas"></canvas>
         </div>
         
     </div>
@@ -178,7 +180,6 @@ function bg10(){
 }
 
 
-
     var video;
     var canvas;
     var slider;
@@ -191,18 +192,19 @@ function bg10(){
     function setup(){
         
         //canvas=createCanvas(windowWidth, windowHeight, WEBGL);
-        canvas=createCanvas(cw, ch, WEBGL);
+        //canvas=createCanvas(cw, ch, WEBGL);
         //bg = loadImage("{{ asset('storage/bg.jpg') }}");
-        
-        canvas.parent('canvas-holder');
-        canvas=canvas.id('p5canvas');
+        canvas=document.getElementById('p5canvas', WEBGL);
+        //canvas.parent('canvas-holder');
+        //canvas=canvas.id('p5canvas');
        //canvas.size(cw,ch);
-
+        //canvas.background('blue');
      //background('{{ asset('storage/bg.jpg') }}');
         video=createCapture(VIDEO);
-        video.size(windowWidth,500);
+        //video.size(cw,ch);
+        //video.parent('canvas-holder');
         video.id('p5video');
-        video.hide();
+        //video.hide();
 
         //slider = createSlider(0, 1, 0.5, 0.01);
         //slider.id('blur-slider');
@@ -210,7 +212,9 @@ function bg10(){
         var seriously = new Seriously();
 
         var src = seriously.source('#p5video');
-        var target = seriously.target('#p5canvas', WEBGL);
+        
+        var target = seriously.target('#p5canvas',WEBGL);
+        
        
         /*var blur = seriously.effect('blur');
         blur.amount = '#blur-slider';
@@ -233,6 +237,20 @@ function bg10(){
         //resizeCanvas(windowWidth, windowHeight);
     }
     function draw() {
-        //background(51);
+        //image(target, 0, 0);
+
     }
+
+     function save() {
+          var image = document.getElementById("p5canvas");
+          //var context = image.getContext("2d");
+          
+          // no argument defaults to image/png; image/jpeg, etc also work on some
+          // implementations -- image/png is the only one that must be supported per spec.
+          var capture = image.toDataURL("image/png");
+          document.write('<img src="'+capture+'"/>');
+      }
+
+      
+
 </script>

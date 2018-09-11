@@ -94,7 +94,7 @@ Route::get(
 );*/
 
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
 
 /*Route::get(
     '/', function() {
@@ -114,6 +114,8 @@ Route::get(
     }
 );
 
+
+
 Route::put('/changeProfile/{id}', 'UserController@changeProfile')
     ->name('changeProfile')->middleware('auth');
 
@@ -130,7 +132,7 @@ Route::resource('admin', 'AdminController')->middleware('admin');
 Route::resource('users', 'UserController')->middleware('auth');
 Route::resource('posts', 'PostController')->middleware('auth');
 Route::resource('comments', 'CommentController')->middleware('auth');
-
+Route::resource('friends', 'FriendController');
 
 
 
@@ -139,3 +141,9 @@ Auth::routes();
 Route::get('/verify/{token}', 'VerifyController@verify')->name('verify');
 Route::get('/verifyEmail', 'VerifyController@verifyEmail')->name('verifyEmail');
 
+//Route::get('/add', 'FriendController@add')->name('add');
+Route::get('/add/{friend_id}', 'FriendController@add')->name('add');
+Route::get('/accept/{friend_id}', 'FriendController@acceptFriend')->name('accept');
+Route::get('/requests', 'FriendController@friendRequest')->name('requests');
+
+//Route::get('/list', 'FriendController@friendlist')->name('list');

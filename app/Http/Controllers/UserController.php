@@ -1,13 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-
+    
 use App\Notifications\VerifyEmail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Hash;
 use App\User;
 use App\Role;
+use App\Friend;
 use Auth;
 use DB;
 

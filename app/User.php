@@ -1,6 +1,7 @@
 <?php
 
 namespace App;
+use App\Traits\Friendable;
 use App\Notifications\VerifyEmail;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -8,10 +9,12 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Hash;
 Use App\Role;
 Use App\Comment;
+use App\Friend;
 class User extends Authenticatable
 {
     use Notifiable;
     use SoftDeletes;
+    use Friendable;
 
     /**
      * The attributes that are mass assignable.
@@ -56,10 +59,28 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Role::class);
     }
-
-
 //
 
+
+    /*public function me()
+    {
+        return $this->hasMany('App\Friend', 'user_id')->withTrashed();
+    }
+
+    public function friends()
+    {
+        return $this->hasMany('App\Friend', 'friend_id')->withTrashed();
+    }*/
+//
+
+    public function user()
+        {
+        return $this->hasMany('App\Friend', 'user_id');
+    }   
+    public function friends()
+    {
+        return $this->hasMany('App\Friend', 'friend_id');
+    }
    /**
 
     * @param string|array $roles
@@ -111,5 +132,19 @@ class User extends Authenticatable
         $this->notify(new VerifyEmail($this));
     }
 */
+    /*public function friends()
+	{
+		return $this->belongsToMany('App\User', 'friends_users', 'user_id', 'friend_id');
+	}
+
+	public function addFriend(User $user)
+	{
+		$this->friends()->attach($user->id);
+	}
+
+	public function removeFriend(User $user)
+	{
+		$this->friends()->detach($user->id);
+	}*/
     
 }
