@@ -1,25 +1,22 @@
-
-       
-    <div class="container size">
-            <div class="ui left corner label">
-                    <i class=" large red heart icon"></i>
-                  </div> 
+ 
+<div class="ui segment post">
+    <div class="ui left corner label">
+        <i class=" large blue heart icon"></i>
+    </div> 
         <form autocomplete="off" method="post" action={{ route('posts.store') }}>
             {{csrf_field()}}
-       
-             
-                <input type="hidden" name="id" value="{{ Auth::user()->id }}"/>
+            <input type="hidden" name="id" value="{{ Auth::user()->id }}"/>
                 <section class="flexbox">
-                    <i class="ui left floated blue header">Share Your Thoughts!</i>
-                        <button class="ui right floated facebook button"  type="submit" name="post">Posts</button>
-                        <div class="ui clearing divider"></div>
-                            <div class="ui fluid massive input">
-                                <input type="text" name="content" placeholder="What's on your mind?"/>
-                            </div>
-                        
+                    <i style="margin-left:20px" class="ui left aligned blue header">Share Your Thoughts!</i>
+                    <button class="ui right floated facebook button"  type="submit" name="post">Posts</button>
+                    <div class="ui clearing divider"></div>
+                    <div class="ui fluid massive input">
+                        <input type="text" name="content" placeholder="What's on your mind?"/>
+                    </div>
                 </section>
-            </form>
-            </div>
+        </form>
+</div>
+
      
 
 

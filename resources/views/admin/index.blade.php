@@ -1,3 +1,4 @@
+
 @extends('layout.userpage')
 <head>
         <meta charset="utf-8">
@@ -11,9 +12,12 @@
         <link rel="stylesheet" href="{{mix('css/app.css')}}"> 
 </head>
 
+
 @section('content')
 
+
  <!--Retrieving and showing of data from database-->  
+
 
         <table class="ui celled table">
             <thead>

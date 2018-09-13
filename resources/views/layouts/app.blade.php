@@ -8,46 +8,18 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="<?php echo asset('css/posts.css')?>" type="text/css">
+    <!--<link rel="stylesheet" href="<?php echo asset('css/posts.css')?>" type="text/css">-->
     <link rel="stylesheet" href="{{mix('css/app.css')}}">
-    
+    <!--Style for Login-->
+                    
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.css">  
+    <link rel="stylesheet" href="<?php echo asset('css/login.css')?>" type="text/css">
+   
+
 </head>
 
-<body img class="ui fluid image" src="/images/img3.jpg">
-    <div id="app">
-            <!--<div class="ui secondary menu">
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        WePOST
-                    </a>
-            
-                <div class="right menu">
-                       
-                                <a href="{{ route('login') }}" class="navbar-brand">Login</a>
-                        <a class="navbar-brand" href="{{ route('register') }}">Register</a>
-                </div>-->
-         
-
-                <div class="navbar-header">
-
-                    <!-- Collapsed Hamburger -->
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse" aria-expanded="false">
-                        <span class="sr-only">Toggle Navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-
-                    <!-- Branding Image -->
-                   
-
-                
-                
-                    <!--Style for Login-->
+<body style="background-color:  rgba(199, 236, 238,1.0)">
                     
-                    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.css">  
-                    <link rel="stylesheet" href="<?php echo asset('css/login.css')?>" type="text/css">
-                    <link rel="stylesheet" href="{{mix('css/app.css')}}">  
-
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav" style="float:right">
                         <!-- Authentication Links -->
@@ -61,16 +33,23 @@
                                 </a>
 
                                 <ul class="dropdown-menu">
-                                        <li>
-                                            <a href=""
-                                                onclick="event.preventDefault();
-                                                    document.getElementById('logout-form').submit();">
-                                                    Profile
-                                            </a>
-        
-                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                                {{ csrf_field() }}
-                                            </form>
+                                    @if(Auth::user()->roles()->first()->name == 'admin')
+                                        <li>                                            
+                                            <a href ="{{ route('users.index', Auth::user()->id) }}">Admin</a>
+                                        </li>
+                                    @endif
+                                        <li>                                            
+                                            <a href ="{{ route('posts.index', Auth::user()->id) }}">Timeline</a>
+                                        </li>
+                                        <li>                                            
+                                            <a href ="{{ route('users.show', Auth::user()->id) }}">Profile</a>
+                                        </li>
+                                        <li style="cursor:pointer;" class="dropdown-submenu">                                            
+                                            <a class="test" tabindex="-1">Settings</a>
+                                            <ul class="left dropdown-menu">
+                                                    <li><a href="{{ route('users.edit', Auth::user()->id) }}" tabindex="-1">General Settings</a></li>
+                                                    <li><a href="{{ route('passwordSettings', Auth::user()->id) }}" tabindex="-1">Change Password</a></li>
+                                            </ul>
                                         </li>
                                     <li>
                                         <a href="{{ route('logout') }}"
@@ -94,12 +73,17 @@
            <div>
         @yield('content')
     </div>
-    
-        <div style="position:fixed; bottom:0;width: 100%; color:black " class="ui centered footer">
-             <center><p>Created  By: Isla and Gaowther</p></center>
-           
-     </div>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>
+<script>
+        $(document).ready(function(){
+          $('.dropdown-submenu a.test').on("click", function(e){
+            $(this).next('ul').toggle();
+            e.stopPropagation();
+            e.preventDefault();
+          });
+        });
+        </script>
+        

@@ -1,13 +1,18 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-
+//use App\Notifications\VerifyEmail;
 use App\User;
 use App\Role;
+use Mail;
+use App\Mail\verifyEmail;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
+use Illuminate\Http\Request;
+use Illuminate\Auth\Events\Registered;
 class RegisterController extends Controller
 {
     /*
@@ -28,7 +33,20 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    //protected $redirectTo = '/verifyEmail';
+
+
+    public function register(Request $request)
+    {
+        $this->validator($request->all())->validate();
+
+        event(new Registered($user = $this->create($request->all())));
+
+        // $this->guard()->login($user);
+
+        return $this->registered($request, $user)
+                        ?: redirect($this->redirectPath());
+    }
 
     /**
      * Create a new controller instance.
@@ -74,17 +92,33 @@ class RegisterController extends Controller
         $user = new User;
         $fileNameToStore = "index.png";
 
-         $user=User::create( 
+        $user=User::create( 
             [
             'name' => ucwords($data['name']),
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
             'profile' => $fileNameToStore,
+            'token' => str_random(25), 
             ]
         );
         //$user->User::find(1);
         $user_role=Role::where('name', 'user')->first();
         $user->roles()->attach($user_role);
+
+        $thisUser = User::findOrFail($user->id);
+        $this->sendEmail($thisUser);
+        //$user->sendVerificationEmail();
+        //$user->notify(new VerifyEmail($user));
+        
         return $user;
+        
     }
+
+    public function sendEmail($thisUser)
+    {
+        Mail::to($thisUser['email'])->send(new verifyEmail($thisUser));
+    }
+
+    
+   
 }

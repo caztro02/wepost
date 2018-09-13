@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Posts;
-
-class GroupController extends Controller
+use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Post;
+use App\Comment;
+use App\User;
+use DB;
+class CommentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +17,15 @@ class GroupController extends Controller
      */
     public function index()
     {
-        $post = Posts::all();
-        return view('posts.index', compact('post'));
+        $comment = Comment::all();
+        
+        $comment = new Comment;
+
+        $comment_data['comment_data'] = $comment->orderBy('created_at', 'DESC')->get();
+
+            return view('comment.index', $comment_data);
+            
+        //return $comment;
     }
 
     /**
@@ -36,7 +46,15 @@ class GroupController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $comment = new Comment;
+        
+
+        $comment-> content = $request-> content;
+        $comment-> user_id = $request-> user_id;
+        $comment-> post_id = $request-> post_id;
+
+        $comment->save();
+        return redirect()->route('posts.index');
     }
 
     /**
@@ -47,15 +65,7 @@ class GroupController extends Controller
      */
     public function show($id)
     {
-        $users = new User;
-
-        $data['data'] = $users -> get();
-
-        if (count('data[0]') >0 ) {
-            return view('admin.index', $data);
-        } else {
-            return view('admin.index');
-        }
+        //
     }
 
     /**

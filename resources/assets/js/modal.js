@@ -1,0 +1,26 @@
+//lert('yow');
+
+
+var modal = document.getElementById('simpleModal');
+//Get open modal
+var comment = document.getElementById('comment');
+//Get close button
+var closeBtn = document.getElementById('closeBtn');
+
+//Listen for open click
+comment.addEventListener('click',openModal);
+//Listen for close click
+closeBtn.addEventListener('click',closeModal);
+
+//Function to open modal
+function openModal(){
+  //alert("yow");
+  modal.style.display = 'block';
+  //console.log("hello");
+ // document.write('yow');
+}
+
+//function to close modal
+function closeModal(){
+  modal.style.display = 'none';
+}

@@ -12,22 +12,24 @@ class UsersTablesSeeder extends Seeder
      */
     public function run()
     {
-        $role_user = Role::where('name', 'user')->first();
+        //$role_user = Role::where('name', 'user')->first();
         $role_admin  = Role::where('name', 'admin')->first();
 
-        $user = new User();
+        /*$user = new User();
         $user->name = 'Illumi Zoldycks';
         $user->email = 'illumi@test.com';
         $user->profile = 'index.png';
         $user->password = bcrypt('password');
+        $user->token = str_random(25);
         $user->save();
-        $user->roles()->attach($role_user);
+        $user->roles()->attach($role_user);*/
+        
     
         $admin = new User();
         $admin->name = 'Administrator';
         $admin->email = 'castro.trimex@gmail.com';
         $admin->profile = 'index.png';
-        $admin->password = bcrypt('password');
+        $admin->password = bcrypt('Password12');
         $admin->save();
         $admin->roles()->attach($role_admin);
     }

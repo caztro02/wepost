@@ -1,12 +1,13 @@
 <?php
 
 namespace App;
-
+use App\Notifications\VerifyEmail;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Hash;
-
+Use App\Role;
+Use App\Comment;
 class User extends Authenticatable
 {
     use Notifiable;
@@ -18,7 +19,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'profile'
+        'name', 'email', 'password', 'profile', 'token', 'verified'
     ];
 
     /**
@@ -37,6 +38,13 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Post');
     }   
+
+    public function comments()
+    {
+        return $this->hasMany('App\Comment');
+    }
+
+    
 //
     public function setPasswordAttribute($password)
     {
@@ -48,13 +56,16 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Role::class);
     }
-    
+
+
+//
+
    /**
 
     * @param string|array $roles
 
     */
-
+/*
     public function authorizeRoles($roles) {
 
         if (is_array($roles)) {
@@ -65,13 +76,13 @@ class User extends Authenticatable
         return $this->hasRole($roles) || 
         abort(401, 'This action is unauthorized.');
     }
-
+*/
     /** 
     * Check multiple roles
     * @param array $roles
     */
 
-    public function hasAnyRole($roles)
+   /* public function hasAnyRole($roles)
     {
         return null !== $this->roles()->whereIn('name', $roles)->first();
     }
@@ -80,16 +91,25 @@ class User extends Authenticatable
     * Check one role
     * @param string $role
     */
-
+/*
     public function hasRole($role)
     {
         return null !== $this->roles()->where('name', $role)->first();
-    }
+    }*/
 
     public function IsAdmin()
     {
-
+        if($this->roles()->where('name', $role));
     }
 
+   
 
+   
+
+    /*public function sendVerificationEmail()
+    {
+        $this->notify(new VerifyEmail($this));
+    }
+*/
+    
 }

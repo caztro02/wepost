@@ -1,15 +1,13 @@
-.ui.container.size{
-  height:auto;
-  width:30%;
+//.ui.container.size{
+  //height:auto;
+  //width:30%;
 
-}
+//}
+
 
 .ui.center.aligned.header{
   font-family: "Times New Roman", Times, serif;
-  font-style: oblique;
   color:gray;
-  font-size: 4em;
-
   //margin-left: 300px;
   
 }
@@ -20,5 +18,7 @@ h3{
 .inline.field input::placeholder{
   color:black;
   opacity:0.6;
+  font-size:0.75em;
 }
+
 

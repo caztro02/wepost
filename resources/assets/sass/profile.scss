@@ -1,0 +1,47 @@
+//Profile Card
+
+.ui.left.aligned.header{
+    font-family:Georgia, serif;
+ 
+}
+.ui.left.floated.segment{
+    width:250px;
+    height:400px;
+    margin-left:20px;
+    
+}
+.date{
+    font-size:0.70em;
+}
+.description{
+    font-size:0.80em;
+}
+.ui.card{
+    background-color:rgba(236, 240, 241,1.0);
+
+}
+
+//Profile Post Page
+.ui.left.floated.padded.segment.white{
+    width:900px;
+    height:500px;
+    overflow:scroll;
+
+  
+}
+.ui.blue.segment.container.profile{
+    background-color:rgba(199, 236, 238,1.0);
+     width:900px;
+     height:40%;
+     position:relative;
+     overflow:hidden;
+     border-radius:2px;
+    // box-shadow: 1px 1px 3px 3px rgb(151, 149, 149);
+  }
+
+  .ui.message.content{
+    height:100px;  
+     }
+.link{
+ color:black;
+}

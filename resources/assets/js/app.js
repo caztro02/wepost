@@ -30,6 +30,52 @@ $('.slider').glide({
     arrowLeftText: ''
   });
 
+  $('#toggle').click(function(){
+    $('.ui.sidebar').sidebar('toggle');
+  });
+
+var red = [0, 100, 63];
+var orange = [40, 100, 60];
+var green = [75, 100, 40];
+var blue = [196, 77, 55];
+var purple = [280, 50, 60];
+
+var myName = "MEHROSH";
+letterColors = [red, orange, green];
+bubbleShape = "circle";
+
+
+drawName(myName, letterColors);
+bounceBubbles();
+
+
+
+$('.ui.modal')
+.modal('show')
+;
+//Get modal element
+var modal = document.getElementById('simpleModal');
+//Get open modal
+var modalBtn = document.getElementById('modalBtn');
+//Get close button
+var closeBtn = document.getElementByClassName('closeBtn')[0];
+
+//Listen for open click
+modalBtn.addEventListener('click',openModal);
+//Listen for close click
+closeBtn.addEventListener('click',closeModal);
+
+//Function to open modal
+function openModal(){
+  //modal.style.display = 'block';
+  console.log("hello");
+}
+
+//function to close modal
+function closeModal(){
+  modal.style.display = 'none';
+}
+
 
 
 

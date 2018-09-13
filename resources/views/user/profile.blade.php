@@ -2,6 +2,7 @@
 
 @section('content')
 
+
 <div style="width:50%;margin-left:25%;">
 
 <form action="" method="post">

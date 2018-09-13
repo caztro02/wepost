@@ -1,6 +1,6 @@
 .ui.container.width{
     width:40%;
-    box-shadow: 1px 1px 3px 3px rgb(151, 149, 149);
+    //box-shadow: 1px 1px 3px 3px rgb(151, 149, 149);
 }
 .form-group label{
     font-size:15px;
@@ -18,3 +18,49 @@
     // padding:0;
    // height: 100vh;
    //}
+.ui.stacked.segment{
+    margin-left:30%;
+}
+
+//Modal Comment
+.button{
+background-color:coral;
+padding:1em 2em;
+color: white;
+border:0;
+}
+.button:hover{
+    background-color:grey;
+}
+
+.modal{
+   // display:none;
+   position:fixed;
+   display:none;
+   z-index:1;
+   left:0;
+   top:0;
+   height:100%;
+   width:100%;
+   overflow:auto;
+  // background-color:skyblue;
+
+}
+.modal-content{
+background-color:white;
+margin:20% auto;
+padding:20px;
+width:70%;
+//box-shadow:0 5px 8px 0 rgba(0black;
+}
+.closeBtn{
+    color:white;
+    float:right;
+    font-size:30px;
+}
+.closeBtn:hover,.closeBtn:focus{
+    color:black;
+    text-decoration:none;
+    cursor:pointer;
+}
+

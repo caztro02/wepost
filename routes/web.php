@@ -53,39 +53,61 @@ Route::get(
     }   
 ); 
 
+
 Route::get(
-    '/component', function () {
-         return view('component');
-    } 
+    '/test', function () {
+         return view('layout.test');
+    }   
 );
 
-/*Route::get(
-    '/', function() {
-        return view('welcome');
-    }
-//development
-);*/
 
-
-
-/*Route::get(
-    '/', 'LoginController@login'
-);*/
-
+/*
 Route::get(
     '/signup', 'SignupController@signup'
-);
-/*      
-Route::get(
+);*/
+
+/*Route::get(
     '/login', 'LoginController@index'
-);
-*/
+);*/
+
+
 //Route::post(
 //    '/login', 'LoginController@login'
 //);
 
 //Route::post('login', array('uses' => 'LoginController@login'));
 
+/*
+Route::get(
+    '/log', function() {
+        $data = session('email');
+        return $data;
+    }
+);
+
+Route::get(
+    '/user', function() {
+        return view('user.index');
+    }
+);
+*/
+
+//Route::resource('profile', 'ProfileController');
+//Route::resource('groups', 'GroupController');
+/*Route::post(
+    '/test', function () {
+        echo 'Working';
+    }
+);*/
+
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+/*Route::get(
+    '/', function() {
+        return view('welcome');
+    }
+);*/
 
 Route::get(
     '/camera', function() {
@@ -99,34 +121,28 @@ Route::get(
     }
 );
 
+Route::put('/changeProfile/{id}', 'UserController@changeProfile')
+    ->name('changeProfile')->middleware('auth');
 
 Route::get(
-    '/log', function() {
-        $data = session('email');
-        return $data;
-    }
-);
+    '/passwordSettings/{id}', 'UserController@passwordSettings'
+)->name('passwordSettings')->middleware('auth');
 
-Route::get(
-    '/user', function() {
-        return view('user.index');
-    }
-);
+Route::post('/changePassword', 'UserController@changePassword')
+    ->name('changePassword')->middleware('auth');
 
-Route::resource('groups', 'GroupController');
+
+
 Route::resource('admin', 'AdminController')->middleware('admin');
-Route::resource('users', 'UserController');//->middleware('auth');
-Route::resource('profile', 'ProfileController');
+Route::resource('users', 'UserController')->middleware('auth');
 Route::resource('posts', 'PostController')->middleware('auth');
+Route::resource('comments', 'CommentController')->middleware('auth');
 
-/*Route::post(
-    '/test', function () {
-        echo 'Working';
-    }
-);*/
+
 
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-//development
+Route::get('/verify/{token}', 'VerifyController@verify')->name('verify');
+Route::get('/verifyEmail', 'VerifyController@verifyEmail')->name('verifyEmail');
+
