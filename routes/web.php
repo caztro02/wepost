@@ -114,6 +114,11 @@ Route::get(
     }
 );
 
+Route::get(
+    '/test', function() {
+        return view('test');
+    }
+);
 
 
 Route::put('/changeProfile/{id}', 'UserController@changeProfile')

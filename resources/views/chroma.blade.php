@@ -11,246 +11,204 @@
 
     <style>
         body{
-            
+            background-color: #ecf0f1;
             background-size:cover;
             background-repeat:no-repeat;
         }
-        .p5canvas{
-            height:100%;
-            width:100%
+        #p5canvas{
+            background-size:cover;
+            background-repeat: no-repeat;
         }
         #bg-holder{
-            background-color: #333;
-            overflow: auto;
+            background-color: #ecf0f1;
             float:left;
-           
             height:100%;
             width:20%;
         }
         #canvas-holder{
+            background-size:cover;
             float:left;
-            
             height:100%;
             width:80%;
         }
+        #content{
+            height:100%;
+            width:100%;
+            overflow-x: auto;
+        }
+        .scroll{
+            height:10%;
+            width:100%;
+        }
         #nav{
-           
-            
+            padding:0;
             width:100%;
             height:10%;
         }
-
-        /*#bg-holder a {
-            display: inline-block;
+        #ss{
+            margin:0;
+            height:100%;
+            width:100%;
+            background-color: #1abc9c;
             color: white;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
             text-align: center;
-            padding: 14px;
-            text-decoration: none;
-        }*/
-        #bg-holder a:hover {
-            background-color: #777;
         }
-
+        #ss:hover{
+            background-color:#16a085;
+        }
         #main{
             width:100%;
             height:90%;
         }
-
         .choice-img{
             height:100px;
-            width:80%;     
-            cursor:pointer;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+            width:100%;     
+            cursor:pointer; 
+            border-top-style:solid;
+            border-bottom-style:solid;
+            border-color:transparent;
         }
-
+        .choice-img:hover{
+            border-top-style:solid;
+            border-bottom-style:solid;
+            border-color:#1abc9c;
+        }
         body.newbg {
             background-image:url('{{ asset('storage/bg.jpg') }}');
         }
+        #defaultCanvas0{
+            display:none;
+        }
+        #bg-holder li{
+            list-style-type:none;
+        }
+     
 
     </style>
 </head>
 <body>
-    <div id="nav">
-        <button onclick="save()" id="save">Save</button>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
 
-    </div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
-    <!--<canvas class="canvas" id="p5canvas">Not Supported</canvas>-->
     <div id="main">
         <div id="bg-holder">
-            <li><a><img class="choice-img" id="img1" onclick="bg1()"  src="{{ asset('storage/bg/bg1.jpg') }}"></a></li>
-            <li><a><img class="choice-img" id="img2" onclick="bg2()" src="{{ asset('storage/bg/bg2.jpg') }}"></a></li>
-            <li><a><img class="choice-img" id="img3" onclick="bg3()" src="{{ asset('storage/bg/bg3.jpg') }}"></a></li>
-            <li><a><img class="choice-img" id="img4" onclick="bg4()" src="{{ asset('storage/bg/bg4.jpg') }}"></a></li>
-            <li><a><img class="choice-img" id="img5" onclick="bg5()" src="{{ asset('storage/bg/bg5.jpg') }}"></a></li>
-            <li><a><img class="choice-img" id="img6" onclick="bg6()" src="{{ asset('storage/bg/bg6.jpg') }}"></a></li>
-            <li><a><img class="choice-img" id="img7" onclick="bg7()" src="{{ asset('storage/bg/bg7.jpg') }}"></a></li>
-            <li><a><img class="choice-img" id="img8" onclick="bg8()" src="{{ asset('storage/bg/bg8.jpg') }}"></a></li>
-            <li><a><img class="choice-img" id="img9" onclick="bg9()" src="{{ asset('storage/bg/bg9.jpeg') }}"></a></li>
-            <li><a><img class="choice-img" id="img10" onclick="bg10()" src="{{ asset('storage/bg/bg10.jpg') }}"></a></li>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+            <!--<input type="button" class="scroll" value="Up" id="scrollUp" />-->
+            <div id="content">
+            @for($loop=1;$loop<=10;$loop++)
+                <li><a><img class="choice-img" id="img{{$loop}}" onclick="bg(this)" name="bg{{$loop}}.jpg" src="{{ asset('storage/bg/bg'.$loop.'.jpg') }}"></a></li>
+            @endfor
+            </div>
+            <!--<input type="button" class="scroll" value="Down" id="scrollDown" />   -->                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
         </div>
+    <!--Div for Canvas where the video is being shown-->
         <div id="canvas-holder">
-            <canvas class="p5canvas" id="p5canvas"></canvas>
+            
+            <!--<canvas class="p5canvas" id="p5canvas"></canvas>-->
         </div>
-        
+    <!--End of div-->   
     </div>
+    <div id="nav">
+        <button onclick="start()" id="ss">Capture</button>
+    </div>  
 </body>
 </html>
 
 <script>
 
-function bg1(){
-    var ih="100%";
-    var iw="80%";
-   // document.getElementById('bg-holder').src='{{ asset('storage/profile/index.png') }}';
-    document.getElementById('canvas-holder').style.backgroundImage = "url('{{ asset('storage/bg/bg1.jpg') }}')"
-    document.getElementById('canvas-holder').style.backgroundRepeat = "no-repeat"
-    document.getElementById('canvas-holder').style.backgroundSize = "cover"
-}
-function bg2(){
-    var ih="100%";
-    var iw="80%";
-   // document.getElementById('bg-holder').src='{{ asset('storage/profile/index.png') }}';
-    document.getElementById('canvas-holder').style.backgroundImage = "url('{{ asset('storage/bg/bg2.jpg') }}')"
-    document.getElementById('canvas-holder').style.backgroundRepeat = "no-repeat"
-    document.getElementById('canvas-holder').style.backgroundSize = "cover"
-}
-function bg3(){
-    var ih="100%";
-    var iw="80%";
-   // document.getElementById('bg-holder').src='{{ asset('storage/profile/index.png') }}';
-    document.getElementById('canvas-holder').style.backgroundImage = "url('{{ asset('storage/bg/bg3.jpg') }}')"
-    document.getElementById('canvas-holder').style.backgroundRepeat = "no-repeat"
-    document.getElementById('canvas-holder').style.backgroundSize = "cover"
-}
-function bg4(){
-    var ih="100%";
-    var iw="80%";
-   // document.getElementById('bg-holder').src='{{ asset('storage/profile/index.png') }}';
-    document.getElementById('canvas-holder').style.backgroundImage = "url('{{ asset('storage/bg/bg4.jpg') }}')"
-    document.getElementById('canvas-holder').style.backgroundRepeat = "no-repeat"
-    document.getElementById('canvas-holder').style.backgroundSize = "cover"
-}
-function bg5(){
-    var ih="100%";
-    var iw="80%";
-   // document.getElementById('bg-holder').src='{{ asset('storage/profile/index.png') }}';
-    document.getElementById('canvas-holder').style.backgroundImage = "url('{{ asset('storage/bg/bg5.jpg') }}')"
-    document.getElementById('canvas-holder').style.backgroundRepeat = "no-repeat"
-    document.getElementById('canvas-holder').style.backgroundSize = "cover"
-}
-function bg6(){
-    var ih="100%";
-    var iw="80%";
-   // document.getElementById('bg-holder').src='{{ asset('storage/profile/index.png') }}';
-    document.getElementById('canvas-holder').style.backgroundImage = "url('{{ asset('storage/bg/bg6.jpg') }}')"
-    document.getElementById('canvas-holder').style.backgroundRepeat = "no-repeat"
-    document.getElementById('canvas-holder').style.backgroundSize = "cover"
-}
-function bg7(){
-    var ih="100%";
-    var iw="80%";
-   // document.getElementById('bg-holder').src='{{ asset('storage/profile/index.png') }}';
-    document.getElementById('canvas-holder').style.backgroundImage = "url('{{ asset('storage/bg/bg7.jpg') }}')"
-    document.getElementById('canvas-holder').style.backgroundRepeat = "no-repeat"
-    document.getElementById('canvas-holder').style.backgroundSize = "cover"
-}
-function bg8(){
-    var ih="100%";
-    var iw="80%";
-   // document.getElementById('bg-holder').src='{{ asset('storage/profile/index.png') }}';
-    document.getElementById('canvas-holder').style.backgroundImage = "url('{{ asset('storage/bg/bg8.jpg') }}')"
-    document.getElementById('canvas-holder').style.backgroundRepeat = "no-repeat"
-    document.getElementById('canvas-holder').style.backgroundSize = "cover"
-}
-function bg9(){
-    var ih="100%";
-    var iw="80%";
-   // document.getElementById('bg-holder').src='{{ asset('storage/profile/index.png') }}';
-    document.getElementById('canvas-holder').style.backgroundImage = "url('{{ asset('storage/bg/bg9.jpeg') }}')"
-    document.getElementById('canvas-holder').style.backgroundRepeat = "no-repeat"
-    document.getElementById('canvas-holder').style.backgroundSize = "cover"
-}
-function bg10(){
-    var ih="100%";
-    var iw="80%";
-   // document.getElementById('bg-holder').src='{{ asset('storage/profile/index.png') }}';
-    document.getElementById('canvas-holder').style.backgroundImage = "url('{{ asset('storage/bg/bg10.jpg') }}')"
-    document.getElementById('canvas-holder').style.backgroundRepeat = "no-repeat"
-    document.getElementById('canvas-holder').style.backgroundSize = "cover"
-}
 
-
-    var video;
-    var canvas;
-    var slider;
-    var cv;
-    var canvasDiv = document.getElementById('canvas-holder');
-    var cw=canvasDiv.offsetWidth;
-    var ch=canvasDiv.offsetHeight
-    //var bg = loadImage('{{ asset('storage/bg.jpg') }}');
+//function for using chroma key
+    
 
     function setup(){
-        
-        //canvas=createCanvas(windowWidth, windowHeight, WEBGL);
-        //canvas=createCanvas(cw, ch, WEBGL);
-        //bg = loadImage("{{ asset('storage/bg.jpg') }}");
-        canvas=document.getElementById('p5canvas', WEBGL);
-        //canvas.parent('canvas-holder');
-        //canvas=canvas.id('p5canvas');
-       //canvas.size(cw,ch);
-        //canvas.background('blue');
-     //background('{{ asset('storage/bg.jpg') }}');
-        video=createCapture(VIDEO);
-        //video.size(cw,ch);
-        //video.parent('canvas-holder');
-        video.id('p5video');
-        //video.hide();
 
-        //slider = createSlider(0, 1, 0.5, 0.01);
-        //slider.id('blur-slider');
+        var canvas;
+        var video;
+        
+        var canvasDiv = document.getElementById('canvas-holder');
+        var cw=canvasDiv.offsetWidth;
+        var ch=canvasDiv.offsetHeight
+        //canvas = document.getElementById('p5canvas');
+        canvas=createCanvas(cw, ch, WEBGL);
+        canvas.parent('canvas-holder');
+        canvas.id('p5canvas');
+        //canvas.className('p5canvas');
+
+        canvas.size(cw, ch);
+        
+        video=createCapture(VIDEO);
+        video.id('p5video');
+        video.size(cw, ch);
+        pixelDensity(.6);
+        video.hide();
 
         var seriously = new Seriously();
 
-        var src = seriously.source('#p5video');
+            var src = seriously.source('#p5video');
+            var target = seriously.target('#p5canvas',cw, ch);
+            
+            //target.size(cw, ch);
+     
+            var chroma = seriously.effect('chroma');
+            chroma.source = src;
+            target.source = chroma;
+            //target.scale(1,2);
         
-        var target = seriously.target('#p5canvas',WEBGL);
-        
-       
-        /*var blur = seriously.effect('blur');
-        blur.amount = '#blur-slider';
-        blur.source = src;
-        target.source= blur;
-        */
-        var chroma = seriously.effect('chroma');
-        chroma.source = src;
-        target.source = chroma;
-        
-
-        //var r = 98/255;
-        //var g = 175/255;
-        //var b = 116/255;
-        //chroma.screen=[r,g,b,1];
-
         seriously.go();
     }
-    function windowResized() {
-        //resizeCanvas(windowWidth, windowHeight);
+var bgDiv = document.getElementById('canvas-holder');
+
+function bg(element){
+
+    var id = element.id;
+    var choice = element.name;
+    var ch = "storage/bg/";
+    var bgimg = ch.concat(choice);
+
+    bgDiv.style.backgroundImage = 'url('+bgimg+')';
+    
+
+}
+
+function ss(){
+/*
+var text = "";
+var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+for (var i = 0; i < 10; i++){
+    text += possible.charAt(Math.floor(Math.random() * possible.length));
+}
+*/
+html2canvas(document.getElementById('canvas-holder')).then(function(canvas) {
+    // Export the canvas to its data URI representation
+    //var base64image = canvas.toDataURL("image/png");
+    var a = document.createElement('a');
+        // toDataURL defaults to png, so we need to request a jpeg, then convert for file download.
+        a.href = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+        a.download = 'iiii.jpg';
+        
+    // Open the image in a new window
+    //window.open(base64image , "_blank");
+});
+}
+
+var counter = 1;
+var intervalId = null;
+function finish() {
+  clearInterval(intervalId);
+  document.getElementById("ss").innerHTML = "Capture";
+  ss();	
+}
+function bip() {
+    if(counter == 0) finish();
+    else {
+        document.getElementById("ss").innerHTML = counter;
     }
-    function draw() {
-        //image(target, 0, 0);
-
-    }
-
-     function save() {
-          var image = document.getElementById("p5canvas");
-          //var context = image.getContext("2d");
-          
-          // no argument defaults to image/png; image/jpeg, etc also work on some
-          // implementations -- image/png is the only one that must be supported per spec.
-          var capture = image.toDataURL("image/png");
-          document.write('<img src="'+capture+'"/>');
-      }
-
-      
+    counter--;
+}
+function start() {  intervalId = setInterval(bip, 1000);
+}	
 
 </script>

@@ -13,6 +13,11 @@
                     <i class="ui left floated blue header">Share Your Thoughts!</i>
                         <button class="ui right floated facebook button"  type="submit" name="post">Posts</button>
                         <div class="ui clearing divider"></div>
+                        @if ($errors->has('content'))
+                        <span class="help-block">
+                        <strong>{{ $errors->first('content') }}</strong>
+                        </span>
+                        @endif
                             <div class="ui fluid massive input">
                                 <input type="text" name="content" placeholder="What's on your mind?"/>
                             </div>

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Post;
@@ -10,6 +10,8 @@ use DB;
 
 class PostController extends Controller
 {
+
+
     /**
      * Display a listing of the resource.
      *
@@ -50,6 +52,11 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+        $validatedData = $request->validate([
+            'content' => 'required|max:255',
+        ]);
+
+
         $post = new Post;
         //$content = $request ->input('content');
         //$email = $request ->input('email');         
