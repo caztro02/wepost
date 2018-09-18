@@ -10,6 +10,7 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Event;
 
+
 class UserTest extends TestCase
 {
     /**
@@ -17,35 +18,11 @@ class UserTest extends TestCase
      *
      * @return void
      */
-    public function testExample()
+    public function testHasItemInBox()
     {
-        Event::fake();
+        $user = new User;
 
-        $request = Request::create('/store', 'POST',[
 
-            'name'     =>     'foo',
-    
-            'email'     =>     'bar',
-            'profile'     =>     'index.png',
-            'password'     =>     bcrypt('Password12'),
-            
-    
-        ]);
-
-        $controller = new UserController();
-
-        $response = $controller->store($request);
-        $this->assertEquals(302, $response->getStatusCode());
-
-        $document = Document::where('title', 'foo')->first();
-
-        $this->assertNotNull($document);
-
-        Event::assertDispatched(DocumentCreated::class, function ($event) use ($document) { 
-
-            return $event->document->id === $document->id; 
-    
-        });
     }
 
     /*

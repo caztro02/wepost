@@ -183,26 +183,31 @@ for (var i = 0; i < 10; i++){
 */
 html2canvas(document.getElementById('canvas-holder')).then(function(canvas) {
     // Export the canvas to its data URI representation
-    //var base64image = canvas.toDataURL("image/png");
-    var a = document.createElement('a');
-        // toDataURL defaults to png, so we need to request a jpeg, then convert for file download.
-        a.href = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
-        a.download = 'iiii.jpg';
+    var base64image = canvas.toDataURL("image/png");
+    //var a = document.createElement('a');
+    //toDataURL defaults to png, so we need to request a jpeg, then convert for file download.
+    //var base64image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+    //a.download = 'iiii.jpg';
+        //location.href = base64image;
         
     // Open the image in a new window
-    //window.open(base64image , "_blank");
+    window.open(base64image , "_blank");
 });
 }
 
 var counter = 1;
 var intervalId = null;
 function finish() {
-  clearInterval(intervalId);
-  document.getElementById("ss").innerHTML = "Capture";
-  ss();	
+    counter = 1;
+    clearInterval(intervalId);
+    document.getElementById("ss").innerHTML = "Capture";
+    ss();	
 }
 function bip() {
-    if(counter == 0) finish();
+    if(counter == 0){
+        
+        finish();
+    }
     else {
         document.getElementById("ss").innerHTML = counter;
     }

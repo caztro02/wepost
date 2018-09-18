@@ -120,6 +120,12 @@ Route::get(
     }
 );
 
+Route::get(
+    '/savedImages', function() {
+        return view('savedImages');
+    }
+);
+
 
 Route::put('/changeProfile/{id}', 'UserController@changeProfile')
     ->name('changeProfile')->middleware('auth');
